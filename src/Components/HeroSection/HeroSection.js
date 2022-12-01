@@ -1,4 +1,5 @@
 import React from "react";
+import "./HeroSection.css";
 
 export default function HeroSection() {
   return (
@@ -10,12 +11,16 @@ export default function HeroSection() {
           You’re in the right place
         </h3>
         <p>
-          we believe that great food should be affordable and accessible to
+          we believe that great food should be affordable 
+          <br/>
+          and accessible to
           everyone who wants it.
           <br />
           That’s why we offer our customers a wide variety of options for
           restaurants.
         </p>
+
+        <button className="view-all">View Restaurant</button>
       </div>
 
       <div className="about-img">

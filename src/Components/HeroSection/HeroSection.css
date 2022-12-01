@@ -1,3 +1,42 @@
 .about-restaurant{
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 30px;
+    margin-top:50px ;
+    height: 80vh;
+
+}
+
+.about-restaurant > div{
+    flex: 50%;
+}
+
+.about-info{
+    padding: 20px 40px;
+
+}
+.about-info > h3 {
+    font-size: 30px;
+    color: var(--mint-cream);
+    word-spacing: 5px;
+}
+.about-info > p {
+    word-spacing: 2px;
+    font-size: 20px;
+    line-height: 2;
+    color: var(--mint-cream);
+}
+.about-img{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.about-img > img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+    height: 400px;
+
 }
