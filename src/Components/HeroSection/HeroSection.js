@@ -20,7 +20,7 @@ export default function HeroSection() {
           restaurants.
         </p>
 
-        <button className="view-all">View Restaurant</button>
+        <button className="view-all">View Restaurants</button>
       </div>
 
       <div className="about-img">
