@@ -1,0 +1,26 @@
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  margin: 0 auto;
+}
+
+#copy-right {
+  display: block;
+  color: var(--mint-cream);
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.social-icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 20%;
+}
+.social-icon{
+    display: block;
+    color: var(--secondary-font-color);
+    font-size:30px ;
+}
