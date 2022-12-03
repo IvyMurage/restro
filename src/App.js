@@ -1,8 +1,9 @@
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import HeroSection from "./Components/HeroSection/HeroSection";
+import LoginForm from "./Components/Login/LoginForm";
 import SignUp from "./Components/Signup/Signup";
-import "./index.css"
+import "./index.css";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <HeroSection />
       <SignUp />
+      <LoginForm />
       <Footer />
     </div>
   );
