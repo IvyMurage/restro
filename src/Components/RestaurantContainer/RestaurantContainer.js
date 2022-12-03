@@ -4,7 +4,7 @@ import RestaurantCard from "./RestaurantCard";
 import "./RestaurantContainer.css";
 
 function RestaurantContainer() {
-  const { loading, restaurantserror, restaurants } =
+  const { loading, restraurantsError, restaurants } =
     useContext(RestaurantContext);
 
   const restaurantList = restaurants.map((restaurant) => (
@@ -21,8 +21,8 @@ function RestaurantContainer() {
   return (
     <div className="restaurant-container">
       {/* <h2>Popular Restaurants</h2> */}
-      {restaurantserror.length > 0
-        ? restaurantserror.map((error) => (
+      {restraurantsError.length > 0
+        ? restraurantsError.map((error) => (
             <span className="error-message" key={error}>
               {error}
             </span>

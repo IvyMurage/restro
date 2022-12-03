@@ -5,7 +5,7 @@ const RestaurantContext = createContext();
 function RestaurantProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
-  const [restraurantserror, setRestaurantsError] = useState([]);
+  const [restraurantsError, setRestaurantsError] = useState([]);
   const [restaurantId, setRestaurantId] = useState("");
   const [restaurant, setRestaurant] = useState({});
   const [restaurantError, setRestaurantError] = useState([]);
@@ -48,7 +48,7 @@ function RestaurantProvider({ children }) {
 
   const values = {
     loading,
-    restraurantserror,
+    restraurantsError,
     restaurants,
     restaurant,
     restaurantError,

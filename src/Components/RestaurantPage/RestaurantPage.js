@@ -1,9 +1,15 @@
-import React, { useContext } from 'react'
-import { RestaurantContext } from '../RestaurantContext'
+import React, { useContext } from "react";
+import { RestaurantContext } from "../RestaurantContext";
 
 export default function RestaurantPage() {
-  const { restaurant} = useContext(RestaurantContext)
+  const { restaurant } = useContext(RestaurantContext);
   return (
-    <div>RestaurantPage</div>
-  )
+    <div restaurant-page>
+      <div className="restaurant-info">
+        <img src={restaurant.image_url} alt={restaurant.name} />
+        <h2>{restaurant.name}</h2>
+        <p>{restaurant.description}</p>
+      </div>
+    </div>
+  );
 }

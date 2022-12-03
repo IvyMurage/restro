@@ -1,25 +1,38 @@
+import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import HeroSection from "./Components/HeroSection/HeroSection";
 import LoginForm from "./Components/Login/LoginForm";
 import RestaurantContainer from "./Components/RestaurantContainer/RestaurantContainer";
 import { RestaurantProvider } from "./Components/RestaurantContext";
+import RestaurantPage from "./Components/RestaurantPage/RestaurantPage";
 import SignUp from "./Components/Signup/Signup";
 import "./index.css";
 
 function App() {
   return (
-    <RestaurantProvider>
-      <div className="App">
+    <div className="App">
+      <RestaurantProvider>
         <Header />
-
-        <HeroSection />
-        {/* <SignUp />
-      <LoginForm /> */}
-        <RestaurantContainer />
-        <Footer />
-      </div>
-    </RestaurantProvider>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSection />
+                <h3 id="bookList-heading"> Popular Restaurants</h3>{" "}
+                <RestaurantContainer />
+              </>
+            }
+          />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignUp />} />
+          {/* <Route path="/restaurant/:id" element={<RestaurantPage />} /> */}
+        </Routes>
+        
+      </RestaurantProvider>
+      <Footer />
+    </div>
   );
 }
 
