@@ -1,0 +1,17 @@
+.restaurant-page {
+  border: 1px solid yellow;
+}
+
+.restaurant-info > img {
+  border: 1px solid green;
+  width: 1200px;
+  height: 500px;
+  margin: 0 auto;
+  display: block;
+}
+
+.restaurant-info > h2 {
+  position: relative;
+  top: 100%;
+  border:1px solid red;
+}

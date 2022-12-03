@@ -22,7 +22,7 @@ function RestaurantCard({
           {restaurantName}
         </h3>
         <h4> {restaurantAddress} </h4>
-        <Icon icon="material-symbols:star-rate" className="logo-icon" />
+        <Icon icon="material-symbols:star-rate-rounded" className="logo-icon" />
       </div>
     </div>
   );

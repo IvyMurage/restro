@@ -8,9 +8,10 @@ function RestaurantProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
   const [restraurantsError, setRestaurantsError] = useState([]);
-  const [restaurantId, setRestaurantId] = useState("");
+  const [restaurantId, setRestaurantId] = useState(1);
   const [restaurant, setRestaurant] = useState({});
   const [restaurantError, setRestaurantError] = useState([]);
+  const [foods, setFoods] = useState([]);
   useEffect(() => {
     const payload = async () => {
       setLoading(true);
@@ -37,6 +38,7 @@ function RestaurantProvider({ children }) {
       if (response.ok) {
         localStorage.setItem("restaurant", JSON.stringify(restaurant));
         setRestaurant(restaurant);
+        setFoods(restaurant.foods)
         setLoading(false);
       } else {
         setRestaurantError(restaurant.errors);
@@ -58,6 +60,7 @@ function RestaurantProvider({ children }) {
   const values = {
     loading,
     restraurantsError,
+    foods,
     restaurants,
     restaurant,
     restaurantError,
