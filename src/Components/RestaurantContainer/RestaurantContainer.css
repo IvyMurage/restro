@@ -1,17 +1,22 @@
 .restaurant-container {
-  display: flex;
+  display: grid;
   justify-content: space-between;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   padding: 10px 20px;
-
 }
 .restaurant-container > h2 {
   float: right;
 }
 
 .restaurant-card {
-  width: 500px;
+  margin-top: 20px;
+  width: 400px;
   padding: 20px 40px;
+}
+
+.restro-info > h4 {
+  font-weight: lighter;
 }
 
 .restaurant-img {
@@ -25,8 +30,8 @@
   height: 350px;
   margin: 0 auto;
 }
-.restro-info{
-    margin-top: 10px;
+.restro-info {
+  margin-top: 10px;
 }
 .restaurant-img > img {
   width: 100%;
