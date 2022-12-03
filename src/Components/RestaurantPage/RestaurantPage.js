@@ -2,10 +2,7 @@ import React, { useContext } from "react";
 import { RestaurantContext } from "../RestaurantContext";
 
 export default function RestaurantPage() {
-  // const localRestaurantJson = localStorage.getItem("restaurant");
-  // const restaurant = localRestaurantJson
-  //   ? JSON.parse(localRestaurantJson)
-  //   : [];
+ 
 
   const { restaurant } = useContext(RestaurantContext);
   return (

@@ -10,15 +10,16 @@ export default function LoginForm() {
           alt="restaurant table"
           id="login-img"
         />
-
-        <p className="login-info">
+        <div className="login-info">
           <h3>Restro</h3>
-          We're here to help you find the best restaurant in your area.
-          <br />
-          Whether you're looking for a place to grab a bite with friends,
-          <br />
-          or a place to celebrate with family, we've got you covered.
-        </p>
+          <p>
+            We're here to help you find the best restaurant in your area.
+            <br />
+            Whether you're looking for a place to grab a bite with friends,
+            <br />
+            or a place to celebrate with family, we've got you covered.
+          </p>
+        </div>
       </div>
       <form className="login-form">
         <label htmlFor="username"> Username</label>

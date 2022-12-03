@@ -28,7 +28,7 @@ function RestaurantProvider({ children }) {
     // Function call
     payload();
   }, []);
-  // const localRestaurant = localStorage.getItem('localRestaurant');
+
   useEffect(() => {
     const payload = async () => {
       setLoading(true);
@@ -44,6 +44,11 @@ function RestaurantProvider({ children }) {
     };
     payload();
   }, [restaurantId]);
+
+  // const localRestaurantJson = localStorage.getItem("restaurant");
+  // const localRestaurant = localRestaurantJson
+  //   ? JSON.parse(localRestaurantJson)
+  //   : [];
 
   function handleRestaurant(restaurant) {
     setRestaurantId(restaurant.id);

@@ -8,7 +8,9 @@ export default function Header() {
   return (
     <header>
       <Logo />
-      <h3> Restaurants </h3>
+      <Link to={"/"}>
+        <h3> Restaurants </h3>
+      </Link>
       <Search />
       <Link to={"/login"}>
         <button className="header-login">Login</button>
