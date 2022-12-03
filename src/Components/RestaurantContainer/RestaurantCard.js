@@ -18,7 +18,7 @@ function RestaurantCard({
         <img src={restaurantImage} alt={restaurantName} />
       </div>
       <div className="restro-info">
-        <h3 onClick={() => handleRestaurant(restaurant.id)}>
+        <h3 onClick={() => handleRestaurant(restaurant)}>
           {restaurantName}
         </h3>
         <h4> {restaurantAddress} </h4>

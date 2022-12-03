@@ -2,13 +2,17 @@ import React, { useContext } from "react";
 import { RestaurantContext } from "../RestaurantContext";
 
 export default function RestaurantPage() {
+  // const localRestaurantJson = localStorage.getItem("restaurant");
+  // const restaurant = localRestaurantJson
+  //   ? JSON.parse(localRestaurantJson)
+  //   : [];
+
   const { restaurant } = useContext(RestaurantContext);
   return (
-    <div restaurant-page>
+    <div className="restaurant-page">
       <div className="restaurant-info">
         <img src={restaurant.image_url} alt={restaurant.name} />
-        <h2>{restaurant.name}</h2>
-        <p>{restaurant.description}</p>
+        <h2> {restaurant.name} </h2> <p> {restaurant.description} </p>
       </div>
     </div>
   );

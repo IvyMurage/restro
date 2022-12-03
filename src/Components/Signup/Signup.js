@@ -35,7 +35,7 @@ function SignUp() {
         <button type="submit" id="signup-btn">
           Sign Up
         </button>
-        <span id="login-section"> Have an account already? Login</span>
+        <span id="login-section"> Have an account already ? Login </span>
       </form>
     </div>
   );

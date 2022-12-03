@@ -1,70 +1,68 @@
 :root {
-    --primary: #0b3142;
-    --primary-font-color: #d0def1;
-    --secondary-font-color: #e1f52c;
-    --secondary: #12263a;
-    --mint-cream: #f5fffa;
-  }
-  .signup-div {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-  }
-  
-  
-  
-  .img-div > img {
-    max-width: 100%;
-    display: block;
-  }
-  
-  
-  .signup-form > label{
-    font-size: 18px;
-  }
-  .signup-form {
-    height: 90%;
-    width: 60%;
-    background-color: var(--mint-cream);
-    color: var(--primary);
-    font-size: 20px;
-    padding: 10px 30px;
-    margin: 0 auto;
-    border-radius: 20px;
-    padding: 20px 30px;
-    display: grid;
-    grid-template-rows: repeat(1fr);
-  }
-  
-  .signup-input {
-    padding: 10px 30px;
-    width: 80%;
-    border-style: none;
-  }
-  
-  #signup-btn {
-    padding: 10px 45px;
-    display: block;
-    margin: 0 auto;
-    margin-top: 10px;
-    color: var(--primary);
-    background-color: var(--secondary-font-color);
-    font-weight: 700;
-    border-style: none;
-    border-radius: 10px;
-    font-size: 20px;
-    transition: 0.4m ease-out;
-  }
-  
-  #signup-btn:hover {
-    border: 2px solid var(--primary);
-    background-color: transparent;
-    transform: scale(1.05);
-  }
-  
-  #login-section{
-    text-align: center;
-    padding: 10px;
-  }
-  
+  --primary: #0b3142;
+  --primary-font-color: #d0def1;
+  --secondary-font-color: #e1f52c;
+  --secondary: #12263a;
+  --mint-cream: #f5fffa;
+}
+.signup-div {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.img-div > img {
+  max-width: 100%;
+  display: block;
+}
+
+.signup-form > label {
+  font-size: 18px;
+}
+.signup-form {
+  height: 90%;
+  width: 60%;
+  background-color: var(--mint-cream);
+  color: var(--primary);
+  font-size: 20px;
+  padding: 10px 30px;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 20px 30px;
+  display: grid;
+  grid-template-rows: repeat(1fr);
+}
+
+.signup-input {
+  padding: 10px 30px;
+  width: 80%;
+  border-style: none;
+  border: 1px solid var(--secondary);
+  border-radius: 15px;
+}
+
+#signup-btn {
+  padding: 10px 45px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  color: var(--primary);
+  background-color: var(--secondary-font-color);
+  font-weight: 700;
+  border-style: none;
+  border-radius: 10px;
+  font-size: 20px;
+  transition: 0.4m ease-out;
+}
+
+#signup-btn:hover {
+  border: 2px solid var(--primary);
+  background-color: transparent;
+  transform: scale(1.05);
+}
+
+#login-section {
+  text-align: center;
+  padding: 10px;
+}
