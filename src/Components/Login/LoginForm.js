@@ -5,7 +5,20 @@ export default function LoginForm() {
   return (
     <div className="login-div">
       <div className="login-img">
-        <img src="./images/table-setting.jpg" alt="restaurant table" />
+        <img
+          src="./images/table-setting.jpg"
+          alt="restaurant table"
+          id="login-img"
+        />
+
+        <p className="login-info">
+          <h3>Restro</h3>
+          We're here to help you find the best restaurant in your area.
+          <br />
+          Whether you're looking for a place to grab a bite with friends,
+          <br />
+          or a place to celebrate with family, we've got you covered.
+        </p>
       </div>
       <form className="login-form">
         <label htmlFor="username"> Username</label>
@@ -29,7 +42,7 @@ export default function LoginForm() {
         <button type="submit" className="login-btn">
           Login
         </button>
-        <span id="signup"> Don't have an account? Login</span>
+        <span id="signup-section"> Don't have an account? Login</span>
       </form>
     </div>
   );
