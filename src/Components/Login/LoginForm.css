@@ -4,6 +4,8 @@
   margin: 0 auto;
   width: 100%;
   padding: 20px 40px;
+  height: 100vh;
+  margin-bottom: 30px;
 }
 
 .login-img {
