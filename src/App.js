@@ -27,9 +27,8 @@ function App() {
           />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignUp />} />
-          {/* <Route path="/restaurant/:id" element={<RestaurantPage />} /> */}
+          <Route path="/restaurants/:id" element={<RestaurantPage />} />
         </Routes>
-        
       </RestaurantProvider>
       <Footer />
     </div>

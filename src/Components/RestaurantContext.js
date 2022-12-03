@@ -1,8 +1,10 @@
 import React, { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RestaurantContext = createContext();
 
 function RestaurantProvider({ children }) {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
   const [restraurantsError, setRestaurantsError] = useState([]);
@@ -44,6 +46,7 @@ function RestaurantProvider({ children }) {
 
   function handleRestaurant(restaurantId) {
     setRestaurantId(restaurantId);
+    navigate(`/restaurants/${restaurantId}`);
   }
 
   const values = {
