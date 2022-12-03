@@ -14,13 +14,14 @@ function RestaurantContainer() {
       restaurantRating={restaurant.rating}
       restaurantLike={restaurant.like}
       restaurantImage={restaurant.image_url}
+      restaurant={restaurant}
     />
   ));
   return (
     <div className="restaurant-container">
       {/* <h2>Popular Restaurants</h2> */}
       {errors.length > 0
-        ? errors.map((error) => <span className="error-message">{error}</span>)
+        ? errors.map((error) => <span className="error-message" key={error}>{error}</span>)
         : null}
       {loading ? <h2>Loading...</h2> : restaurantList}
     </div>

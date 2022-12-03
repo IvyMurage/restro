@@ -18,7 +18,14 @@
 .restro-info > h4 {
   font-weight: lighter;
 }
+.restro-info > h3 {
+  cursor: pointer;
+}
 
+.restro-info > h3:hover {
+ text-decoration: underline;
+  
+}
 .restaurant-img {
   width: 100%;
   background: linear-gradient(
