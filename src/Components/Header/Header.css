@@ -15,10 +15,11 @@ header {
   top: 0;
 }
 
-header > h3 {
+header > a {
   position: relative;
   color: var(--secondary-font-color);
   font-weight: 500;
+  text-decoration: none;
 }
 .logo {
   width: fit-content;
@@ -80,5 +81,4 @@ header > h3 {
   border: 2px solid var(--primary-font-color);
   background-color: transparent;
   color: var(--secondary-font-color);
-  
 }

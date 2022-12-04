@@ -1,12 +1,14 @@
 .food-container {
-  border: 1px solid red;
   display: flex;
   justify-content: space-between;
-  grid-template-columns: repeat(1fr 2);
+  margin: 0 auto;
+  grid-template-columns: repeat(1fr 3);
   margin-top: 100px;
   height: 500px;
   align-items: center;
   padding: 10px 30px;
+  width: 85%;
+  
 }
 
 .food-img {

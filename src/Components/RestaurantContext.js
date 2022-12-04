@@ -12,6 +12,7 @@ function RestaurantProvider({ children }) {
   const [restaurant, setRestaurant] = useState({});
   const [restaurantError, setRestaurantError] = useState([]);
   const [foods, setFoods] = useState([]);
+  const [reviews, setReviews] = useState([]);
   useEffect(() => {
     const payload = async () => {
       setLoading(true);
@@ -44,6 +45,19 @@ function RestaurantProvider({ children }) {
         setRestaurantError(restaurant.errors);
       }
     };
+    payload();
+  }, [restaurantId]);
+
+  useEffect(() => {
+    const payload = async () => {
+      const response = await fetch(`/restaurants/${restaurantId}/reviews`);
+
+      const reviews = await response.json();
+      if (response.ok) {
+       setReviews(reviews);
+      }
+    };
+
     payload();
   }, [restaurantId]);
 
@@ -101,10 +115,11 @@ function RestaurantProvider({ children }) {
     }
   }
   // end of sign up functionality
+
   // Start of adding Login functionality
   const [loginData, setLoginData] = useState({
-    username: "ChiciiBobo",
-    password: "123",
+    username: "",
+    password: "",
   });
   const [user, setUser] = useState({});
   const [loginError, setLoginError] = useState([]);
