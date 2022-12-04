@@ -38,7 +38,7 @@ function RestaurantProvider({ children }) {
       if (response.ok) {
         localStorage.setItem("restaurant", JSON.stringify(restaurant));
         setRestaurant(restaurant);
-        setFoods(restaurant.foods)
+        setFoods(restaurant.foods);
         setLoading(false);
       } else {
         setRestaurantError(restaurant.errors);

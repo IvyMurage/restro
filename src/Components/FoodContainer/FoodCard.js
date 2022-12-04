@@ -6,7 +6,7 @@ function FoodCard({ foodName, foodPrice, foodImage, foodRating }) {
     <div className="food-card">
       <img src={foodImage} alt={foodName} className="food-img" />
       <h3> {foodName} </h3>
-      <p> {foodPrice} </p> <span> {foodRating} </span>
+      <p> Price: {foodPrice} </p> <span> {foodRating} </span>
     </div>
   );
 }
