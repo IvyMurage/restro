@@ -57,6 +57,67 @@ function RestaurantProvider({ children }) {
     navigate(`/restaurants/${restaurant.id}`);
   }
 
+  // Start of adding Login functionality
+  const [loginData, setLoginData] = useState({
+    username: "ChiciiBobo",
+    password: "123",
+  });
+  const [user, setUser] = useState({});
+  const [loginError, setLoginError] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  function handleLoginChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    setLoginData({
+      ...loginData,
+      [name]: value,
+    });
+  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  //   fetch("/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ username, password }),
+  //   }).then((r) => {
+  //     setIsLoading(false);
+  //     if (r.ok) {
+  //       r.json().then((user) => onLogin(user));
+  //     } else {
+  //       r.json().then((err) => setErrors(err.errors));
+  //     }
+  //   });
+  // }
+  async function handleSubmitLoginDetails(event) {
+    event.preventDefault();
+    setIsLoading(true);
+    const response = await fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(loginData),
+    });
+
+    const userData = await response.json();
+
+    if (response.ok) {
+      setIsLoading(false);
+      setUser(userData);
+      setLoginError([]);
+      setLoginData({
+        username: "",
+        password: "",
+      });
+      navigate("/");
+    } else {
+      setLoginError(userData.errors);
+    }
+  }
+  // End of Login functionality
+
   const values = {
     loading,
     restraurantsError,
@@ -65,6 +126,10 @@ function RestaurantProvider({ children }) {
     restaurant,
     restaurantError,
     handleRestaurant,
+    handleLoginChange,
+    loginData,
+    handleSubmitLoginDetails,
+    loginError,
   };
   return (
     <RestaurantContext.Provider value={values}>
