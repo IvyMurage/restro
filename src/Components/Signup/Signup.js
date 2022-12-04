@@ -1,25 +1,53 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Signup.css";
 
 function SignUp() {
   const [signupData, setSignupData] = useState({
-    username: "ChichiiBobo",
-    password: "123",
+    username: "",
+    password: "",
     image_url: "",
-    password_confirmation: "123",
+    password_confirmation: "",
   });
 
   const [signupError, setSignupError] = useState([]);
+  const [signupLoading, setSignupLoading] = useState(false);
 
   function handleSignupChange(event) {
     const name = event.target.name;
     const value = event.target.value;
     setSignupData({ ...signupData, [name]: value });
   }
+
+  async function handleSubmitSignupDetails(event) {
+    event.preventDefault();
+    setSignupLoading(true);
+    const response = await fetch("/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(signupData),
+    });
+
+    const userData = await response.json();
+    if (response.ok) {
+      setSignupData(userData);
+      setSignupError([]);
+      setSignupLoading(false);
+      Navigate("/");
+      setSignupData({
+        username: "",
+        password: "",
+        image_url: "",
+        password_confirmation: "",
+      });
+    } else {
+      setSignupError(userData.errors);
+      setSignupLoading(false);
+    }
+  }
   return (
     <div className="signup-div">
-      <form className="signup-form">
+      <form className="signup-form" onSubmit={handleSubmitSignupDetails}>
         <label> Username </label> <br />
         <input
           type="text"
@@ -29,6 +57,11 @@ function SignUp() {
           value={signupData.username}
           onChange={handleSignupChange}
         />
+        {signupError.length > 0 ? (
+          <p style={{ color: "red", fontSize: "15px" }}>
+            {signupError.find((error) => error.includes("Username"))}!!!
+          </p>
+        ) : null}
         <br />
         <label htmlFor="password"> Password </label> <br />
         <input
@@ -39,16 +72,26 @@ function SignUp() {
           value={signupData.password}
           onChange={handleSignupChange}
         />
+        {signupError.length > 0 ? (
+          <p style={{ color: "red", fontSize: "15px" }}>
+            {signupError.find((error) => error.includes("Password"))}!!!
+          </p>
+        ) : null}
         <br />
         <label type="password"> Password Confirmation </label> <br />
         <input
           type="password"
-          name="password-confirmation"
+          name="password_confirmation"
           autoComplete="current-password"
           className="signup-input"
           value={signupData.password_confirmation}
           onChange={handleSignupChange}
         />
+        {signupError.length > 0 ? (
+          <p style={{ color: "red", fontSize: "15px" }}>
+            {signupError.find((error) => error.includes("confirmation"))}!!!
+          </p>
+        ) : null}
         <br />
         <label type="imageUrl"> Profile Image </label> <br />
         <input
@@ -61,7 +104,7 @@ function SignUp() {
         />
         <br />
         <button type="submit" id="signup-btn">
-          Sign Up
+          {signupLoading ? "Loading..." : "Sign Up"}
         </button>
         <Link to={"/login"}>
           <span id="login-section"> Have an account already ? Login </span>
