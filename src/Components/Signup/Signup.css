@@ -40,6 +40,7 @@
   border-style: none;
   border: 1px solid var(--secondary);
   border-radius: 15px;
+  outline: 0;
 }
 
 #signup-btn {
@@ -62,7 +63,10 @@
   transform: scale(1.05);
 }
 
-#login-section {
+
+.signup-form > a {
+  text-decoration: none;
   text-align: center;
   padding: 10px;
+  color: var(--primary);
 }
