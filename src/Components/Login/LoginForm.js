@@ -1,10 +1,16 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { RestaurantContext } from "../RestaurantContext";
 import "./LoginForm.css";
 
 export default function LoginForm() {
-  const { loginData, handleLoginChange, handleSubmitLoginDetails, loginError } =
-    useContext(RestaurantContext);
+  const {
+    loginData,
+    handleLoginChange,
+    handleSubmitLoginDetails,
+    loginError,
+    isLoading,
+  } = useContext(RestaurantContext);
 
   return (
     <>
@@ -53,9 +59,11 @@ export default function LoginForm() {
             </p>
           ))}
           <button type="submit" className="login-btn">
-            Login
+            {isLoading ? " Loading..." : "Login"}
           </button>
-          <span id="signup-section"> Don 't have an account? Login</span>
+          <Link>
+            <span id="signup-section"> Don 't have an account? Login</span>
+          </Link>
         </form>
       </div>
     </>

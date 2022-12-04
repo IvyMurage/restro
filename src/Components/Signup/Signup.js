@@ -1,50 +1,17 @@
-import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { RestaurantContext } from "../RestaurantContext";
 import "./Signup.css";
 
 function SignUp() {
-  const [signupData, setSignupData] = useState({
-    username: "",
-    password: "",
-    image_url: "",
-    password_confirmation: "",
-  });
+  const {
+    signupData,
+    signupLoading,
+    signupError,
+    handleSignupChange,
+    handleSubmitSignupDetails,
+  } = useContext(RestaurantContext);
 
-  const [signupError, setSignupError] = useState([]);
-  const [signupLoading, setSignupLoading] = useState(false);
-
-  function handleSignupChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
-    setSignupData({ ...signupData, [name]: value });
-  }
-
-  async function handleSubmitSignupDetails(event) {
-    event.preventDefault();
-    setSignupLoading(true);
-    const response = await fetch("/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(signupData),
-    });
-
-    const userData = await response.json();
-    if (response.ok) {
-      setSignupData(userData);
-      setSignupError([]);
-      setSignupLoading(false);
-      Navigate("/");
-      setSignupData({
-        username: "",
-        password: "",
-        image_url: "",
-        password_confirmation: "",
-      });
-    } else {
-      setSignupError(userData.errors);
-      setSignupLoading(false);
-    }
-  }
   return (
     <div className="signup-div">
       <form className="signup-form" onSubmit={handleSubmitSignupDetails}>

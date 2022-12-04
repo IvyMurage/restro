@@ -57,6 +57,50 @@ function RestaurantProvider({ children }) {
     navigate(`/restaurants/${restaurant.id}`);
   }
 
+  // start of sign up functionality
+  const [signupData, setSignupData] = useState({
+    username: "",
+    password: "",
+    image_url: "",
+    password_confirmation: "",
+  });
+
+  const [signupError, setSignupError] = useState([]);
+  const [signupLoading, setSignupLoading] = useState(false);
+
+  function handleSignupChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    setSignupData({ ...signupData, [name]: value });
+  }
+
+  async function handleSubmitSignupDetails(event) {
+    event.preventDefault();
+    setSignupLoading(true);
+    const response = await fetch("/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(signupData),
+    });
+
+    const userData = await response.json();
+    if (response.ok) {
+      setSignupData(userData);
+      setSignupError([]);
+      setSignupLoading(false);
+      navigate("/");
+      setSignupData({
+        username: "",
+        password: "",
+        image_url: "",
+        password_confirmation: "",
+      });
+    } else {
+      setSignupError(userData.errors);
+      setSignupLoading(false);
+    }
+  }
+  // end of sign up functionality
   // Start of adding Login functionality
   const [loginData, setLoginData] = useState({
     username: "ChiciiBobo",
@@ -109,10 +153,18 @@ function RestaurantProvider({ children }) {
     restaurant,
     restaurantError,
     handleRestaurant,
+    // State and functions for login
     handleLoginChange,
-    loginData,
     handleSubmitLoginDetails,
     loginError,
+    loginData,
+    isLoading,
+    // State and functions for sign up
+    handleSignupChange,
+    handleSubmitSignupDetails,
+    signupData,
+    signupError,
+    signupLoading,
   };
   return (
     <RestaurantContext.Provider value={values}>
