@@ -13,7 +13,7 @@ function FoodContainer() {
       foodRating={food.rating}
     />
   ));
-  return <div>{foodList}</div>;
+  return <div className="food-container">{foodList}</div>;
 }
 
 export default FoodContainer;
