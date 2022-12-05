@@ -3,17 +3,31 @@ import { useContext } from "react";
 import { RestaurantContext } from "../RestaurantContext";
 import "./Review.css";
 function ReviewForm() {
-  const { setTrigger } = useContext(RestaurantContext);
+  const { setTrigger, handleReviewChange, newReview, handleSubmitReview } =
+    useContext(RestaurantContext);
+
   return (
     <div className="popup">
-      <form id="review-form">
+      <form id="review-form" onSubmit={handleSubmitReview}>
         <label htmlFor="title">Title</label>
         <br />
-        <input type="text" name="title" />
+        <input
+          type="text"
+          name="title"
+          value={newReview.title}
+          onChange={handleReviewChange}
+        />
         <br />
         <label htmlFor="comment">Description</label>
         <br />
-        <textarea cols="50" rows="4" className="text-area"></textarea>
+        <textarea
+          cols="50"
+          rows="4"
+          className="text-area"
+          name="comment"
+          value={newReview.comment}
+          onChange={handleReviewChange}
+        ></textarea>
         <br />
         <div className="action-btns">
           <button type="submit" className="review-btn-1">
@@ -23,7 +37,7 @@ function ReviewForm() {
           <button
             type="button"
             className="review-btn-1"
-            onClick={() =>setTrigger((prevState) => !prevState)}
+            onClick={() => setTrigger((prevState) => !prevState)}
           >
             Cancel
           </button>

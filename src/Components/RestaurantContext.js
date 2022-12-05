@@ -33,7 +33,6 @@ function RestaurantProvider({ children }) {
     payload();
   }, []);
 
- 
   useEffect(() => {
     const payload = async () => {
       setLoading(true);
@@ -80,6 +79,42 @@ function RestaurantProvider({ children }) {
     payload();
   }, [restaurantId]);
 
+  // Create functionality for adding a new review
+  const [newReview, setNewReview] = useState({
+    title: "",
+    comment: "",
+  });
+
+  const [reviewError, setReviewError] = useState([]);
+
+  function handleReviewChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    setNewReview({ ...newReview, [name]: value });
+  }
+
+  async function handleSubmitReview(event) {
+    event.preventDefault();
+
+    const response = await fetch(`/restaurants/${restaurantId}/reviews`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newReview),
+    });
+
+    const review = await response.json();
+    if (response.ok) {
+      setReviews([...reviews, review]);
+      setNewReview({
+        title: "",
+        comment: "",
+      });
+    } else {
+      setReviewError(review.errors);
+    }
+  }
+
+  // end of functionality
   function handleRestaurant(restaurant) {
     setRestaurantId((prevstate) => (prevstate = restaurant.id));
     navigate(`/restaurants/${restaurant.id}`);
@@ -210,6 +245,10 @@ function RestaurantProvider({ children }) {
     trigger,
     setTrigger,
     handleAddReview,
+
+    newReview,
+    handleReviewChange,
+    handleSubmitReview,
   };
 
   return (

@@ -8,9 +8,9 @@ function FoodCard({ foodName, foodPrice, foodImage, foodRating }) {
       <h3> {foodName} </h3>
       <p style={{ color: "#e1f52c", fontSize: "15px" }}>Price: ${foodPrice}</p>
       <div className="star-card">
-        {[...Array(foodRating)].map((star) => {
+        {[...Array(foodRating)].map((star, index) => {
           return (
-            <span key={star} className="star" style={{ color: "#e1f52c" }}>
+            <span key={index} className="star" style={{ color: "#e1f52c" }}>
               &#9733;
             </span>
           );
