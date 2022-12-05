@@ -14,6 +14,7 @@ function RestaurantProvider({ children }) {
   const [foods, setFoods] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [reviewsError, setReviewsError] = useState([]);
+  const [onLogin, setOnLogin] = useState(false);
 
   useEffect(() => {
     const payload = async () => {
@@ -109,6 +110,7 @@ function RestaurantProvider({ children }) {
         title: "",
         comment: "",
       });
+      navigate("/restaurants/:id");
     } else {
       setReviewError(review.errors);
     }
@@ -148,7 +150,8 @@ function RestaurantProvider({ children }) {
 
     const userData = await response.json();
     if (response.ok) {
-      setSignupData(userData);
+      setUser(userData);
+      setOnLogin(true);
       setSignupError([]);
       setSignupLoading(false);
       navigate("/");
@@ -170,7 +173,7 @@ function RestaurantProvider({ children }) {
     username: "",
     password: "",
   });
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [loginError, setLoginError] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -208,6 +211,16 @@ function RestaurantProvider({ children }) {
     }
   }
   // End of Login functionality
+
+  // Logout functionality
+  function handleLogoutClick() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
+  //end of logout functionality
   const [trigger, setTrigger] = useState(false);
 
   function handleAddReview() {
@@ -224,12 +237,16 @@ function RestaurantProvider({ children }) {
     handleRestaurant,
 
     // State and functions for login
+    handleLogoutClick,
     handleLoginChange,
     handleSubmitLoginDetails,
     loginError,
     loginData,
     isLoading,
 
+    onLogin,
+    user,
+    setUser,
     // State and functions for sign up
     handleSignupChange,
     handleSubmitSignupDetails,
@@ -247,6 +264,7 @@ function RestaurantProvider({ children }) {
     handleAddReview,
 
     newReview,
+    reviewError,
     handleReviewChange,
     handleSubmitReview,
   };

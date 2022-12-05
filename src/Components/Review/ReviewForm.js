@@ -1,10 +1,18 @@
 import React from "react";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import LoginForm from "../Login/LoginForm";
 import { RestaurantContext } from "../RestaurantContext";
 import "./Review.css";
 function ReviewForm() {
-  const { setTrigger, handleReviewChange, newReview, handleSubmitReview } =
-    useContext(RestaurantContext);
+  const navigate = useNavigate();
+  const {
+    setTrigger,
+    handleReviewChange,
+    newReview,
+    handleSubmitReview,
+    reviewError,
+  } = useContext(RestaurantContext);
 
   return (
     <div className="popup">
@@ -42,6 +50,11 @@ function ReviewForm() {
             Cancel
           </button>
         </div>
+        {reviewError.length > 0
+          ? reviewError.find((review) => review.includes("Review not found"))
+            ? navigate("/login")
+            : null
+          : null}
       </form>
     </div>
   );
