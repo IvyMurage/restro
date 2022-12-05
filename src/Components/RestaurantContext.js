@@ -13,6 +13,8 @@ function RestaurantProvider({ children }) {
   const [restaurantError, setRestaurantError] = useState([]);
   const [foods, setFoods] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [reviewsError, setReviewsError] = useState([]);
+
   useEffect(() => {
     const payload = async () => {
       setLoading(true);
@@ -31,13 +33,14 @@ function RestaurantProvider({ children }) {
     payload();
   }, []);
 
+  console.log(restaurantId);
   useEffect(() => {
     const payload = async () => {
       setLoading(true);
       const response = await fetch(`/restaurants/${restaurantId}`);
       const restaurant = await response.json();
       if (response.ok) {
-        localStorage.setItem("restaurant", JSON.stringify(restaurant));
+        localStorage.setItem("restaurants", JSON.stringify(restaurant));
         setRestaurant(restaurant);
         setFoods(restaurant.foods);
         setLoading(false);
@@ -45,8 +48,22 @@ function RestaurantProvider({ children }) {
         setRestaurantError(restaurant.errors);
       }
     };
+
     payload();
+    // const localRestaurantJson = localStorage.getItem("restaurant");
+    // const localRestaurant = localRestaurantJson
+    //   ? JSON.parse(localRestaurantJson)
+    //   : [];
+
+    // setFoods(localFood);
   }, [restaurantId]);
+
+  useEffect(() => {
+    const data = localStorage.getItem("restaurant");
+    if (data) {
+      setRestaurant(JSON.parse(data));
+    }
+  }, []);
 
   useEffect(() => {
     const payload = async () => {
@@ -54,20 +71,17 @@ function RestaurantProvider({ children }) {
 
       const reviews = await response.json();
       if (response.ok) {
-       setReviews(reviews);
+        setReviews(reviews);
+      } else {
+        setReviewsError(reviews.errors);
       }
     };
 
     payload();
   }, [restaurantId]);
 
-  // const localRestaurantJson = localStorage.getItem("restaurant");
-  // const localRestaurant = localRestaurantJson
-  //   ? JSON.parse(localRestaurantJson)
-  //   : [];
-
   function handleRestaurant(restaurant) {
-    setRestaurantId(restaurant.id);
+    setRestaurantId((prevstate) => (prevstate = restaurant.id));
     navigate(`/restaurants/${restaurant.id}`);
   }
 
@@ -168,19 +182,26 @@ function RestaurantProvider({ children }) {
     restaurant,
     restaurantError,
     handleRestaurant,
+
     // State and functions for login
     handleLoginChange,
     handleSubmitLoginDetails,
     loginError,
     loginData,
     isLoading,
+
     // State and functions for sign up
     handleSignupChange,
     handleSubmitSignupDetails,
     signupData,
     signupError,
     signupLoading,
+
+    //Add functionality for getting and setting reviews
+    reviews,
+    reviewsError,
   };
+
   return (
     <RestaurantContext.Provider value={values}>
       {children}
