@@ -10,7 +10,7 @@ function FoodCard({ foodName, foodPrice, foodImage, foodRating }) {
       <div className="star-card">
         {[...Array(foodRating)].map((star) => {
           return (
-            <span className="star" style={{ color: "#e1f52c" }}>
+            <span key={star} className="star" style={{ color: "#e1f52c" }}>
               &#9733;
             </span>
           );

@@ -1,14 +1,17 @@
 .food-container {
+  display: flex;
+  flex-wrap: wrap;
   display: grid;
-  justify-content: space-between;
+  /* justify-content: space-around; */
   margin: 0 auto;
-  grid-template-columns: repeat( 3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5em;
+
   margin-top: 100px;
   height: 500px;
   align-items: center;
   padding: 10px 30px;
   width: 85%;
-  
 }
 
 .food-img {

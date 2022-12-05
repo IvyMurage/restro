@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import FoodContainer from "../FoodContainer/FoodContainer";
 import { RestaurantContext } from "../RestaurantContext";
 import ReviewContainer from "../Review/ReviewContainer";
+import ReviewForm from "../Review/ReviewForm";
 import "./RestaurantPage.css";
 
 export default function RestaurantPage() {
-  const { restaurant, restaurantError } = useContext(RestaurantContext);
-
+  const { restaurant, restaurantError, trigger } = useContext(RestaurantContext);
+  
   return (
     <>
       {restaurantError.length > 0
@@ -22,7 +23,8 @@ export default function RestaurantPage() {
           <h2> {restaurant.name} </h2> <p> {restaurant.description} </p>
         </div>
         <FoodContainer />
-        <ReviewContainer />
+        <ReviewContainer  />
+        {trigger ? <ReviewForm /> : null}
       </div>
     </>
   );

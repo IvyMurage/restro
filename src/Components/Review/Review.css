@@ -22,7 +22,7 @@
   font-size: 18px;
   font-weight: 700;
   position: relative;
-  bottom: 30px;
+  bottom: 35px;
   margin-right: 220px;
 }
 .review-card {
@@ -50,4 +50,55 @@
   border-radius: 50%;
   display: block;
   margin-left: 10px;
+}
+
+#review-form {
+  padding: 15px 30px;
+  background-color: var(--mint-cream);
+  width: 75%;
+  border-radius: 15px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--primary);
+}
+#review-form > input,
+.text-area {
+  padding: 10px 30px;
+  width: 60%;
+  border: 0;
+  border-radius: 10px;
+  outline: 0;
+  border: 1px solid var(--primary);
+}
+
+.action-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  float: none;
+  left: 0;
+  top: 0;
+  margin-top: 20px;
+}
+.action-btns > button {
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: var(--primary);
+  border: 0;
+  background-color: var(--secondary-font-color);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

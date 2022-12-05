@@ -1,7 +1,6 @@
 import React from "react";
 import "./Review.css";
 function ReviewCard({ reviewTitle, reviewComment, reviewUser }) {
-  console.log(reviewUser);
   return (
     <div className="review-card">
       <div className="reviewer-info">

@@ -33,7 +33,7 @@ function RestaurantProvider({ children }) {
     payload();
   }, []);
 
-  console.log(restaurantId);
+ 
   useEffect(() => {
     const payload = async () => {
       setLoading(true);
@@ -173,6 +173,11 @@ function RestaurantProvider({ children }) {
     }
   }
   // End of Login functionality
+  const [trigger, setTrigger] = useState(false);
+
+  function handleAddReview() {
+    setTrigger(true);
+  }
 
   const values = {
     loading,
@@ -200,6 +205,11 @@ function RestaurantProvider({ children }) {
     //Add functionality for getting and setting reviews
     reviews,
     reviewsError,
+
+    //Add functionality for getting and setting book
+    trigger,
+    setTrigger,
+    handleAddReview,
   };
 
   return (

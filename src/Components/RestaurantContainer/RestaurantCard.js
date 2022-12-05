@@ -18,9 +18,9 @@ function RestaurantCard({
       <div className="restro-info">
         <h3 onClick={() => handleRestaurant(restaurant)}>{restaurantName}</h3>
         <h4> {restaurantAddress} </h4>
-        {[...Array(restaurantRating)].map((star) => {
+        {[...Array(restaurantRating)].map((star, index) => {
           return (
-            <span className="star" style={{ color: "#e1f52c" }}>
+            <span key={index} className="star" style={{ color: "#e1f52c" }}>
               &#9733;
             </span>
           );
