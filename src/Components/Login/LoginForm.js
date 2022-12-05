@@ -62,7 +62,7 @@ export default function LoginForm() {
             {isLoading ? " Loading..." : "Login"}
           </button>
           <Link>
-            <span id="signup-section"> Don 't have an account? Login</span>
+            <span id="signup-section"> Don 't have an account? Sign up</span>
           </Link>
         </form>
       </div>

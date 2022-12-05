@@ -173,7 +173,7 @@ function RestaurantProvider({ children }) {
     username: "",
     password: "",
   });
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [loginStatus, setLoginStatus] = useState(false);
   const [loginError, setLoginError] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -220,6 +220,7 @@ function RestaurantProvider({ children }) {
       if (r.ok) {
         setUser(null);
         setLoginStatus(false);
+        // navigate("/login");
       }
     });
   }

@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { RestaurantContext } from "../RestaurantContext";
 
-export default function Header() {
-  const { loginStatus, handleLogoutClick } = useContext(RestaurantContext);
+export default function Header({ loggedUser }) {
+  const { handleLogoutClick} = useContext(RestaurantContext);
   return (
     <header>
       <Logo />
@@ -15,15 +15,22 @@ export default function Header() {
         <h3> Restaurants </h3>
       </Link>
       <Search />
-
-      <Link to={"/login"}>
+      {loggedUser ? (
         <button className="header-login" onClick={handleLogoutClick}>
-          {loginStatus ? "Log Out" : " Login"}
+          Log out
         </button>
-      </Link>
+      ) : (
+        <Link to={"/login"}>
+          <button className="header-login">Login</button>
+        </Link>
+      )}
+
       <Link to={"/signup"}>
         <button className="header-sign">Sign Up</button>
       </Link>
+      {loggedUser ? (
+        <button className="user-profile">{loggedUser.username.charAt(0)}</button>
+      ) : null}
     </header>
   );
 }

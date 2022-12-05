@@ -24,10 +24,10 @@ function App() {
     });
   }, [setUser]);
 
-  if (!user) return <LoginForm />;
+  // if (!user) return <LoginForm />;
   return (
     <div className="App">
-      <Header />
+      <Header loggedUser={user} />
       <Routes>
         <Route
           path="/"
