@@ -1,3 +1,52 @@
+.review-container {
+  padding: 20px 40px;
+
+  border-radius: 12px;
+  margin-bottom: 50px;
+  background-color: var(--secondary);
+}
+.review-container > h3 {
+  margin-left: 60px;
+  font-size: 30px;
+}
+
+.review-btn {
+  float: right;
+  clear: both;
+  padding: 10px 30px;
+  border-radius: 15px;
+  border: 0;
+  outline: 0;
+  background-color: var(--secondary-font-color);
+  font-size: 18px;
+  font-weight: 700;
+  position: relative;
+  bottom: 30px;
+  margin-right: 220px;
+}
 .review-card {
-    border:1px solid red;
+  width: 80%;
+  background-color: var(--primary);
+  border-radius: 20px;
+  padding: 15px 30px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+.review-card > p {
+  font-weight: 100;
+  padding: 10px 0;
+}
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+
+.reviewer-info > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: block;
+  margin-left: 10px;
 }

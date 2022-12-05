@@ -14,7 +14,13 @@ function ReviewContainer() {
       reviewUser={review.user}
     />
   ));
-  return <div className="review-container">{reviewList}</div>;
+  return (
+    <div className="review-container">
+      <h3>Reviews</h3>
+      <button className="review-btn">Add Review</button>
+      {reviewList}
+    </div>
+  );
 }
 
 export default ReviewContainer;
