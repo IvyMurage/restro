@@ -1,11 +1,11 @@
-.restaurant-page {
-  border: 1px solid yellow;
-}
+/* .restaurant-page {
+
+} */
 
 .restaurant-info > img {
   border: 1px solid green;
-  width: 1200px;
-  height: 500px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto;
   display: block;
 }

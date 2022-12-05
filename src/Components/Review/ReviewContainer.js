@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { RestaurantContext } from "../RestaurantContext";
 import ReviewCard from "./ReviewCard";
 import "./Review.css";
@@ -18,7 +18,8 @@ function ReviewContainer() {
     <div className="review-container">
       <h3>Reviews</h3>
       <button className="review-btn">Add Review</button>
-      {reviewList}
+
+      {reviewList.length > 0 ? reviewList : <h4>No reviews</h4>}
     </div>
   );
 }

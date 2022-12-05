@@ -1,8 +1,8 @@
 .food-container {
-  display: flex;
+  display: grid;
   justify-content: space-between;
   margin: 0 auto;
-  grid-template-columns: repeat(1fr 3);
+  grid-template-columns: repeat( 3, 1fr);
   margin-top: 100px;
   height: 500px;
   align-items: center;
@@ -36,6 +36,10 @@
 }
 
 .food-card > h3 {
-  font-weight: 500;
+  font-weight: 700;
+}
 
+.food-card > p {
+  padding: 10px 0px;
+  font-weight: 900;
 }

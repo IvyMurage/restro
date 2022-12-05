@@ -1,9 +1,10 @@
 .review-container {
   padding: 20px 40px;
-
+  width: 95%;
   border-radius: 12px;
-  margin-bottom: 50px;
   background-color: var(--secondary);
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 .review-container > h3 {
   margin-left: 60px;
