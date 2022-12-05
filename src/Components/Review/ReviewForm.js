@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginForm from "../Login/LoginForm";
 import { RestaurantContext } from "../RestaurantContext";
 import "./Review.css";
 function ReviewForm() {

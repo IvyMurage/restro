@@ -6,52 +6,45 @@ import Header from "./Components/Header/Header";
 import HeroSection from "./Components/HeroSection/HeroSection";
 import LoginForm from "./Components/Login/LoginForm";
 import RestaurantContainer from "./Components/RestaurantContainer/RestaurantContainer";
-import {
-  RestaurantContext,
-  RestaurantProvider,
-} from "./Components/RestaurantContext";
+import { RestaurantContext } from "./Components/RestaurantContext";
 import RestaurantPage from "./Components/RestaurantPage/RestaurantPage";
 import ReviewContainer from "./Components/Review/ReviewContainer";
 import SignUp from "./Components/Signup/Signup";
 import "./index.css";
 
 function App() {
-  // const { user, setUser } = useContext(RestaurantContext);
+  const { user, setUser } = useContext(RestaurantContext);
 
-  // useEffect(() => {
-  //   // auto-login
-  //   fetch("/me").then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, [setUser]);
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((loggedUser) => setUser(loggedUser));
+      }
+    });
+  }, [setUser]);
 
-  // if (!user) return <Login onLogin={setUser} />;
+  if (!user) return <LoginForm />;
   return (
     <div className="App">
-      <RestaurantProvider>
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <HeroSection />
-                <h3 id="bookList-heading"> Popular Restaurants </h3>
-                <RestaurantContainer />
-              </>
-            }
-          />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/restaurants/:id" element={<RestaurantPage />} />
-          <Route
-            path="/restaurants/:id"
-            element={<ReviewContainer />}
-          />
-        </Routes>
-      </RestaurantProvider>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <HeroSection />
+              <h3 id="bookList-heading"> Popular Restaurants </h3>
+              <RestaurantContainer />
+            </>
+          }
+        />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/restaurants/:id" element={<RestaurantPage />} />
+        <Route path="/restaurants/:id" element={<ReviewContainer />} />
+      </Routes>
+
       <Footer />
     </div>
   );

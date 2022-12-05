@@ -173,7 +173,8 @@ function RestaurantProvider({ children }) {
     username: "",
     password: "",
   });
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
+  const [loginStatus, setLoginStatus] = useState(false);
   const [loginError, setLoginError] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -200,6 +201,7 @@ function RestaurantProvider({ children }) {
     if (response.ok) {
       setIsLoading(false);
       setUser(userData);
+      setLoginStatus(true);
       setLoginError([]);
       setLoginData({
         username: "",
@@ -217,6 +219,7 @@ function RestaurantProvider({ children }) {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null);
+        setLoginStatus(false);
       }
     });
   }
@@ -243,6 +246,7 @@ function RestaurantProvider({ children }) {
     loginError,
     loginData,
     isLoading,
+    loginStatus,
 
     onLogin,
     user,

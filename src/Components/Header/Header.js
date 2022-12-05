@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { RestaurantContext } from "../RestaurantContext";
 
 export default function Header() {
-  const { onLogin, handleLogoutClick } = useContext(RestaurantContext);
+  const { loginStatus, handleLogoutClick } = useContext(RestaurantContext);
   return (
     <header>
       <Logo />
@@ -18,7 +18,7 @@ export default function Header() {
 
       <Link to={"/login"}>
         <button className="header-login" onClick={handleLogoutClick}>
-          Log Out
+          {loginStatus ? "Log Out" : " Login"}
         </button>
       </Link>
       <Link to={"/signup"}>
