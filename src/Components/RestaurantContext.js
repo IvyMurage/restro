@@ -8,8 +8,8 @@ function RestaurantProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
   const [restraurantsError, setRestaurantsError] = useState([]);
-  const [restaurantId, setRestaurantId] = useState(1);
-  const [restaurant, setRestaurant] = useState({});
+  // const [restaurantId, setRestaurantId] = useState(0);
+  const [restaurant, setRestaurant] = useState("");
   const [restaurantError, setRestaurantError] = useState([]);
   const [foods, setFoods] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -34,13 +34,16 @@ function RestaurantProvider({ children }) {
     payload();
   }, []);
 
+  const localIdJson = localStorage.getItem("restaurantId");
+  const localId = localIdJson ? JSON.parse(localIdJson) : [];
+  const [restaurantId, setRestaurantId] = useState(localId);
+
   useEffect(() => {
     const payload = async () => {
       setLoading(true);
       const response = await fetch(`/restaurants/${restaurantId}`);
       const restaurant = await response.json();
       if (response.ok) {
-        localStorage.setItem("restaurant", JSON.stringify(restaurant));
         setRestaurant(restaurant);
         setFoods(restaurant.foods);
         setLoading(false);
@@ -50,30 +53,7 @@ function RestaurantProvider({ children }) {
     };
 
     payload();
-    // const localRestaurantJson = localStorage.getItem("restaurant");
-    // const localRestaurant = localRestaurantJson
-    //   ? JSON.parse(localRestaurantJson)
-    //   : [];
-
-    // setFoods(localFood);
   }, [restaurantId]);
-
-  // const payload = async (restaurantId) => {
-  //   setLoading(true);
-  //   const response = await fetch(`/restaurants/${restaurantId}`);
-  //   const restaurant = await response.json();
-  //   if (response.ok) {
-  //     localStorage.setItem("restaurants", JSON.stringify(restaurant));
-  //     setRestaurant(restaurant);
-  //     setFoods(restaurant.foods);
-  //     setLoading(false);
-  //   } else {
-  //     setRestaurantError(restaurant.errors);
-  //   }
-  // };
-
-
-  // setFoods(localFood);
 
   useEffect(() => {
     const data = localStorage.getItem("restaurant");
@@ -155,6 +135,7 @@ function RestaurantProvider({ children }) {
 
   function handleRestaurant(restaurant) {
     setRestaurantId((prevstate) => (prevstate = restaurant.id));
+    localStorage.setItem("restaurantId", JSON.stringify(restaurant.id));
     navigate(`/restaurants/${restaurant.id}`);
   }
 
@@ -268,7 +249,7 @@ function RestaurantProvider({ children }) {
   }
 
   const values = {
-   setRestaurant,
+    setRestaurant,
     loading,
     restraurantsError,
     foods,
@@ -289,6 +270,7 @@ function RestaurantProvider({ children }) {
     onLogin,
     user,
     setUser,
+
     // State and functions for sign up
     handleSignupChange,
     handleSubmitSignupDetails,

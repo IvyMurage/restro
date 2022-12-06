@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { RestaurantContext } from "../RestaurantContext";
+import React from "react";
+
 import FoodCard from "./FoodCard";
 import "./FoodContainer.css";
-function FoodContainer() {
-  const { foods } = useContext(RestaurantContext);
-  const foodList = foods.map((food) => (
+function FoodContainer({ foods }) {
+  // const { foods } = useContext(RestaurantContext);
+  const foodList = foods?.map((food) => (
     <FoodCard
       key={food.id}
       foodName={food.name}

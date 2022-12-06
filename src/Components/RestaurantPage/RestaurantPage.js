@@ -23,7 +23,7 @@ export default function RestaurantPage() {
           <img src={restaurant.image_url} alt={restaurant.name} />
           <h2> {restaurant.name} </h2> <p> {restaurant.description} </p>
         </div>
-        <FoodContainer />
+        <FoodContainer foods={restaurant.foods} />
         <ReviewContainer />
         {trigger ? <ReviewForm /> : null}
       </div>
