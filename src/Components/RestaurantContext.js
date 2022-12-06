@@ -194,6 +194,7 @@ function RestaurantProvider({ children }) {
   const [loginStatus, setLoginStatus] = useState(false);
   const [loginError, setLoginError] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [triggerLogin, setTriggerLogin] = useState(true);
 
   function handleLoginChange(event) {
     const name = event.target.name;
@@ -225,6 +226,7 @@ function RestaurantProvider({ children }) {
         password: "",
       });
       navigate("/");
+      setTriggerLogin(false);
     } else {
       setLoginError(userData.errors);
     }
@@ -266,7 +268,7 @@ function RestaurantProvider({ children }) {
     loginData,
     isLoading,
     loginStatus,
-
+    triggerLogin,
     onLogin,
     user,
     setUser,

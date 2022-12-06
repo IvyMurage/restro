@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { RestaurantContext } from "../RestaurantContext";
@@ -11,7 +11,17 @@ function ReviewForm() {
     newReview,
     handleSubmitReview,
     reviewError,
+    triggerLogin,
   } = useContext(RestaurantContext);
+
+  useEffect(() => {
+    if (reviewError.length > 0) {
+      reviewError.find((review) => review.includes("Review not found"));
+      if (triggerLogin) {
+        navigate("/login");
+      }
+    }
+  });
 
   return (
     <div className="popup">
@@ -49,11 +59,6 @@ function ReviewForm() {
             Cancel
           </button>
         </div>
-        {reviewError.length > 0
-          ? reviewError.find((review) => review.includes("Review not found"))
-            ? navigate("/login")
-            : null
-          : null}
       </form>
     </div>
   );
