@@ -14,16 +14,26 @@
   font-family: "Outfit", sans-serif;
 }
 
-.App{
-  width:100%;
+.App {
+  width: 100%;
   margin: 0 auto;
 }
 body {
   background-color: var(--primary);
   color: var(--primary-font-color);
 }
+#bookList-heading {
+  text-align: center;
 
+  font-size: 25px;
+  position: relative;
+}
 
-
-
-
+#bookList-heading::after {
+  content: "";
+  border-bottom: 2px solid #e1f52c;
+  position: absolute;
+  left: 45%;
+  width: 10%;
+  top: 100%;
+}
