@@ -21,7 +21,7 @@
   font-size: 18px;
 }
 .signup-form {
-  height: 90%;
+  height: 100%;
   width: 60%;
   background-color: var(--mint-cream);
   color: var(--primary);
@@ -32,6 +32,7 @@
   padding: 20px 30px;
   display: grid;
   grid-template-rows: repeat(1fr);
+  margin-bottom: 50px;
 }
 
 .signup-input {

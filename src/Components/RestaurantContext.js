@@ -40,7 +40,7 @@ function RestaurantProvider({ children }) {
       const response = await fetch(`/restaurants/${restaurantId}`);
       const restaurant = await response.json();
       if (response.ok) {
-        localStorage.setItem("restaurants", JSON.stringify(restaurant));
+        localStorage.setItem("restaurant", JSON.stringify(restaurant));
         setRestaurant(restaurant);
         setFoods(restaurant.foods);
         setLoading(false);
@@ -57,6 +57,23 @@ function RestaurantProvider({ children }) {
 
     // setFoods(localFood);
   }, [restaurantId]);
+
+  // const payload = async (restaurantId) => {
+  //   setLoading(true);
+  //   const response = await fetch(`/restaurants/${restaurantId}`);
+  //   const restaurant = await response.json();
+  //   if (response.ok) {
+  //     localStorage.setItem("restaurants", JSON.stringify(restaurant));
+  //     setRestaurant(restaurant);
+  //     setFoods(restaurant.foods);
+  //     setLoading(false);
+  //   } else {
+  //     setRestaurantError(restaurant.errors);
+  //   }
+  // };
+
+
+  // setFoods(localFood);
 
   useEffect(() => {
     const data = localStorage.getItem("restaurant");
@@ -121,15 +138,19 @@ function RestaurantProvider({ children }) {
 
   async function handleDeleteReview(reviewId) {
     console.log(reviewId);
-    const response = await fetch (`/restaurants/${restaurantId}/reviews/${reviewId}`, {
-      method: "DELETE"
-    })
+    const response = await fetch(
+      `/restaurants/${restaurantId}/reviews/${reviewId}`,
+      {
+        method: "DELETE",
+      }
+    );
 
-    console.log(response)
-    if(response.ok) {
-      setReviews(prevReviews => prevReviews.filter(review => review.id !== reviewId));
+    console.log(response);
+    if (response.ok) {
+      setReviews((prevReviews) =>
+        prevReviews.filter((review) => review.id !== reviewId)
+      );
     }
-  
   }
 
   function handleRestaurant(restaurant) {
@@ -247,6 +268,7 @@ function RestaurantProvider({ children }) {
   }
 
   const values = {
+   setRestaurant,
     loading,
     restraurantsError,
     foods,
