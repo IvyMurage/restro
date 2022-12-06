@@ -47,3 +47,7 @@
   z-index: -1;
   height: 350px;
 }
+
+.star {
+  padding-right: 8px;
+}

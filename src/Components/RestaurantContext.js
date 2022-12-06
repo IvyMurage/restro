@@ -111,12 +111,27 @@ function RestaurantProvider({ children }) {
         comment: "",
       });
       navigate("/restaurants/:id");
+      setTrigger(false);
     } else {
       setReviewError(review.errors);
     }
   }
 
   // end of functionality
+
+  async function handleDeleteReview(reviewId) {
+    console.log(reviewId);
+    const response = await fetch (`/restaurants/${restaurantId}/reviews/${reviewId}`, {
+      method: "DELETE"
+    })
+
+    console.log(response)
+    if(response.ok) {
+      setReviews(prevReviews => prevReviews.filter(review => review.id !== reviewId));
+    }
+  
+  }
+
   function handleRestaurant(restaurant) {
     setRestaurantId((prevstate) => (prevstate = restaurant.id));
     navigate(`/restaurants/${restaurant.id}`);
@@ -272,6 +287,7 @@ function RestaurantProvider({ children }) {
     reviewError,
     handleReviewChange,
     handleSubmitReview,
+    handleDeleteReview,
   };
 
   return (

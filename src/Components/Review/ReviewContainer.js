@@ -9,6 +9,7 @@ function ReviewContainer() {
   const reviewList = reviews.map((review) => (
     <ReviewCard
       key={review.id}
+      reviewId={review.id}
       reviewTitle={review.title}
       reviewComment={review.comment}
       reviewUser={review.user}
