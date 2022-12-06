@@ -21,8 +21,7 @@ function ReviewContainer() {
       <button className="review-btn" onClick={handleAddReview}>
         Add Review
       </button>
-
-      {reviewList.length > 0 ? reviewList : <h4>No reviews</h4>}
+      {reviewList}
     </div>
   );
 }

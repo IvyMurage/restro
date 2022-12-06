@@ -2,16 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   display: grid;
-  /* justify-content: space-around; */
   margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
   gap: 5em;
-
   margin-top: 100px;
-  height: 500px;
   align-items: center;
   padding: 10px 30px;
   width: 85%;
+  margin-bottom: 50px;
 }
 
 .food-img {
@@ -35,6 +33,7 @@
   flex-direction: column;
   justify-content: center;
   border-radius: 20px;
+  margin-top: 30px;
 }
 
 .food-card > h3 {

@@ -26,27 +26,28 @@ function App() {
 
   // if (!user) return <LoginForm />;
   return (
-    <div className="App">
-      <Header loggedUser={user} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <HeroSection />
-              <h3 id="bookList-heading"> Popular Restaurants </h3>
-              <RestaurantContainer />
-            </>
-          }
-        />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/restaurants/:id" element={<RestaurantPage />} />
-        <Route path="/restaurants/:id" element={<ReviewContainer />} />
-      </Routes>
-
+    <>
+      <div className="App">
+        <Header loggedUser={user} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSection />
+                <h3 id="bookList-heading"> Popular Restaurants </h3>
+                <RestaurantContainer />
+              </>
+            }
+          />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/restaurants/:id" element={<RestaurantPage />} />
+          <Route path="/restaurants/:id" element={<ReviewContainer />} />
+        </Routes>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
