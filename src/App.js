@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import FoodContainer from "./Components/FoodContainer/FoodContainer";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import HeroSection from "./Components/HeroSection/HeroSection";
