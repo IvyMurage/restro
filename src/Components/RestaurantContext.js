@@ -42,7 +42,9 @@ function RestaurantProvider({ children }) {
   useEffect(() => {
     const payload = async () => {
       setLoading(true);
-      const response = await fetch(`https://restro-backend-production.up.railway.app/restaurants/${restaurantId}`);
+      const response = await fetch(
+        `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}`
+      );
       const restaurant = await response.json();
       if (response.ok) {
         setRestaurant(restaurant);
@@ -65,7 +67,9 @@ function RestaurantProvider({ children }) {
 
   useEffect(() => {
     const payload = async () => {
-      const response = await fetch(`https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews`);
+      const response = await fetch(
+        `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews`
+      );
 
       const reviews = await response.json();
       if (response.ok) {
@@ -94,12 +98,15 @@ function RestaurantProvider({ children }) {
 
   async function handleSubmitReview(event) {
     event.preventDefault();
-
-    const response = await fetch(`https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newReview),
-    });
+    console.log(restaurantId);
+    const response = await fetch(
+      `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newReview),
+      }
+    );
 
     const review = await response.json();
     if (response.ok) {
@@ -160,11 +167,14 @@ function RestaurantProvider({ children }) {
   async function handleSubmitSignupDetails(event) {
     event.preventDefault();
     setSignupLoading(true);
-    const response = await fetch("https://restro-backend-production.up.railway.app/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(signupData),
-    });
+    const response = await fetch(
+      "https://restro-backend-production.up.railway.app/signup",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(signupData),
+      }
+    );
 
     const userData = await response.json();
     if (response.ok) {
@@ -209,11 +219,14 @@ function RestaurantProvider({ children }) {
   async function handleSubmitLoginDetails(event) {
     event.preventDefault();
     setIsLoading(true);
-    const response = await fetch("https://restro-backend-production.up.railway.app/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(loginData),
-    });
+    const response = await fetch(
+      "https://restro-backend-production.up.railway.app/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(loginData),
+      }
+    );
 
     const userData = await response.json();
 
@@ -237,7 +250,9 @@ function RestaurantProvider({ children }) {
 
   // Logout functionality
   function handleLogoutClick() {
-    fetch("https://restro-backend-production.up.railway.app/logout", { method: "DELETE" }).then((r) => {
+    fetch("https://restro-backend-production.up.railway.app/logout", {
+      method: "DELETE",
+    }).then((r) => {
       if (r.ok) {
         setUser(null);
         setLoginStatus(false);
