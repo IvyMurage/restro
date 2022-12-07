@@ -6,9 +6,8 @@ const RestaurantContext = createContext();
 function RestaurantProvider({ children }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [restaurants, setRestaurants] = useState([]);
+  const [restaurantItems, setRestaurants] = useState([]);
   const [restraurantsError, setRestaurantsError] = useState([]);
-  // const [restaurantId, setRestaurantId] = useState(0);
   const [restaurant, setRestaurant] = useState("");
   const [restaurantError, setRestaurantError] = useState([]);
   const [foods, setFoods] = useState([]);
@@ -250,6 +249,15 @@ function RestaurantProvider({ children }) {
   function handleAddReview() {
     setTrigger(true);
   }
+  const [search, setSearch] = useState("HELLO");
+  function handleSearchChange(event) {
+    const value = event.target.value;
+    setSearch(value);
+  }
+
+  const restaurants = restaurantItems.filter((restaurant) =>
+    restaurant.name.includes(search)
+  );
 
   const values = {
     setRestaurant,
@@ -260,6 +268,7 @@ function RestaurantProvider({ children }) {
     restaurant,
     restaurantError,
     handleRestaurant,
+    setRestaurants,
 
     // State and functions for login
     handleLogoutClick,
@@ -295,6 +304,9 @@ function RestaurantProvider({ children }) {
     handleReviewChange,
     handleSubmitReview,
     handleDeleteReview,
+
+    handleSearchChange,
+    search,
   };
 
   return (

@@ -22,7 +22,9 @@ export default function Header({ loggedUser }) {
 
   return (
     <header className={header ? "header active" : "header"}>
-      <Logo />
+      <Link to={"/"}>
+        <Logo />
+      </Link>
       <Link to={"/"}>
         <h3> Restaurants </h3>
       </Link>
