@@ -219,6 +219,7 @@ function RestaurantProvider({ children }) {
     if (response.ok) {
       setIsLoading(false);
       setUser(userData);
+      setOnLogin(true);
       setLoginStatus(true);
       setLoginError([]);
       setLoginData({

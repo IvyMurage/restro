@@ -25,7 +25,9 @@ export default function RestaurantPage() {
             <p> {restaurant.description} </p>
             <button className="menu-btn">View Menu</button>
           </div>
-          <img src={restaurant.image_url} alt={restaurant.name} />
+          <div className="restaurant-page-img">
+            <img src={restaurant.image_url} alt={restaurant.name} />
+          </div>
         </div>
         <FoodContainer foods={restaurant.foods} />
         <ReviewContainer />
