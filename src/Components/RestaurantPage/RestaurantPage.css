@@ -6,6 +6,8 @@
   padding: 20px 30px;
   border: 1px solid rgba(255, 255, 255, 0.244);
   border-radius: 18px;
+  width: 95%;
+  margin-top: 40px;
 }
 
 .restaurant-info > img {
@@ -19,7 +21,7 @@
 }
 
 .intro > p {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: lighter;
 }
 .intro {

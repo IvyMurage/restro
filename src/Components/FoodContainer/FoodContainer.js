@@ -14,7 +14,23 @@ function FoodContainer({ foods }) {
       foodDescription={food.description}
     />
   ));
-  return <div className="food-container">{foodList}</div>;
+  return (
+    <>
+      <h3
+        style={{
+          textAlign: "center",
+          marginTop: "50px",
+          color: "#e1f52c",
+          textDecorationColor: "#e1f52c",
+          textDecoration: "underline",
+        }}
+      >
+        Current Menu
+      </h3>
+
+      <div className="food-container">{foodList}</div>
+    </>
+  );
 }
 
 export default FoodContainer;
