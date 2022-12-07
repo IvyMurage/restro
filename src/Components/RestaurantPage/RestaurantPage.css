@@ -1,12 +1,39 @@
-.restaurant-info > img {
-  border: 1px solid green;
-
-
+.restaurant-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
-  display: block;
+  padding: 20px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.244);
+  border-radius: 18px;
 }
 
-.restaurant-info > h2 {
-  position: relative;
-  top: 100%;
+.restaurant-info > img {
+  border-radius: 10px;
+}
+
+.intro > h2 {
+  font-size: 30px;
+
+  color: var(--secondary-font-color);
+}
+
+.intro > p {
+  font-size: 20px;
+  font-weight: lighter;
+}
+.intro {
+  width: 30%;
+  flex: 1;
+  padding: 20px;
+}
+.menu-btn {
+  padding: 10px 30px;
+  margin-top: 20px;
+  color: var(--secondary);
+  background-color: var(--secondary-font-color);
+  font-size: 18px;
+  font-weight: 700;
+  border: 0;
+  border-radius: 15px;
 }

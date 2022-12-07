@@ -11,6 +11,7 @@ function FoodContainer({ foods }) {
       foodPrice={food.price}
       foodImage={food.image_url}
       foodRating={food.rating}
+      foodDescription={food.description}
     />
   ));
   return <div className="food-container">{foodList}</div>;

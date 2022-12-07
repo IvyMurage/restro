@@ -19,9 +19,13 @@ export default function RestaurantPage() {
           ))
         : null}
       <div className="restaurant-page">
-        <div className="restaurant-info">
+        <div className="restaurant-info ">
+          <div className="intro">
+            <h2> {restaurant.name} </h2>
+            <p> {restaurant.description} </p>
+            <button className="menu-btn">View Menu</button>
+          </div>
           <img src={restaurant.image_url} alt={restaurant.name} />
-          <h2> {restaurant.name} </h2> <p> {restaurant.description} </p>
         </div>
         <FoodContainer foods={restaurant.foods} />
         <ReviewContainer />
