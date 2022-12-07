@@ -249,14 +249,14 @@ function RestaurantProvider({ children }) {
   function handleAddReview() {
     setTrigger(true);
   }
-  const [search, setSearch] = useState("HELLO");
+  const [search, setSearch] = useState("");
   function handleSearchChange(event) {
     const value = event.target.value;
     setSearch(value);
   }
 
   const restaurants = restaurantItems.filter((restaurant) =>
-    restaurant.name.includes(search)
+    restaurant.name.toLowerCase().includes(search.toLowerCase())
   );
 
   const values = {
