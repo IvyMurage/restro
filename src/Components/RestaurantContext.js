@@ -18,7 +18,9 @@ function RestaurantProvider({ children }) {
   useEffect(() => {
     const payload = async () => {
       setLoading(true);
-      const response = await fetch("/restaurants");
+      const response = await fetch(
+        "https://restro-backend-production.up.railway.app/restaurants"
+      );
 
       const restaurants = await response.json();
       if (response.ok) {
