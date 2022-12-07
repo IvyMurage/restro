@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import FoodContainer from "../FoodContainer/FoodContainer";
 import { RestaurantContext } from "../RestaurantContext";
-import ReviewContainer from "../Review/ReviewContainer";
-import ReviewForm from "../Review/ReviewForm";
+import ReviewContainer from "../ReviewFolder/ReviewContainer";
+import ReviewForm from "../ReviewFolder/ReviewForm";
 import "./RestaurantPage.css";
 
 export default function RestaurantPage() {

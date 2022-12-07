@@ -8,7 +8,7 @@ import LoginForm from "./Components/Login/LoginForm";
 import RestaurantContainer from "./Components/RestaurantContainer/RestaurantContainer";
 import { RestaurantContext } from "./Components/RestaurantContext";
 import RestaurantPage from "./Components/RestaurantPage/RestaurantPage";
-import ReviewContainer from "./Components/Review/ReviewContainer";
+import ReviewContainer from "./Components/ReviewFolder/ReviewContainer";
 import SignUp from "./Components/Signup/Signup";
 import "./index.css";
 
