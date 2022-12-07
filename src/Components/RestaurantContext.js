@@ -99,8 +99,7 @@ function RestaurantProvider({ children }) {
   async function handleSubmitReview(event) {
     event.preventDefault();
     console.log(restaurantId);
-    const response = await fetch(
-      `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews`,
+    const response = await fetch(`https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -126,12 +125,7 @@ function RestaurantProvider({ children }) {
 
   async function handleDeleteReview(reviewId) {
     console.log(reviewId);
-    const response = await fetch(
-      `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews/${reviewId}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const response = await fetch(`https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews/${reviewId}`,{method: "DELETE",});
 
     console.log(response);
     if (response.ok) {
