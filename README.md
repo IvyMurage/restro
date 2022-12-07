@@ -1,4 +1,4 @@
-# Shamba-ShapeUp
+# Restro
 
 # Table of Contents
 
@@ -14,13 +14,15 @@
 
 # Shamba Shape Up
 #### Brief description of application
-Shamba Shape up is a social newtorking service that it meant to connect farmers. Farmers can post their problems in their farms and also comment on the pots. The project implements different concepts in react. These include React Router Dom, Controlled Componenents, React Forms, Lists and Keys, React Filtering, and Hooks. useState, useEffect, useNavigate, and  are some of the Hooks used in these project. The project also uses React Fetch API to fetch data from json-server.
+You’re probably already aware that it can be hard to find the right restaurant and some times when you do and visit it, you find that it is not what you expected.You've been searching for a new restaurant to try, but it's hard to tell which ones are good. What if you could just go online and find them instantly? 
+
+To solve this problem,  I have decided to create a restaurant finder app that helps people who are new to the area and looking for a good place to eat. Through sharing the restaurants details and also the food that they serve. You can judged how good the restaurant is from the reviews that users share.
 
 ## Project Features
-* Home Page - First page user sees when they visit the site
+* Home Page - First page user sees when they visit the site which contains all the restaurants
 * Login Page - Logs in user to use the application
 * Sign Up page - Registers user to use the application
-* Posts Page - Displayes all the posts and associated comments
+* Restaurant Page - Displayes a single restaurant, its dishes and reviews.
 
 
 ## Objective of the project
@@ -33,8 +35,8 @@ Shamba Shape up is a social newtorking service that it meant to connect farmers.
 
 ## Technologies Used
 * React - it was used to design, structure and add content to the web pages
-* CSS - it was used to styling our the pages
-* Json - it was used to create the backend part of the application
+* Ruby on rails - it was used to create the backend part of the application
+* Netlify - it was used for deployment
 
 ## Installation
 * Fork the repo and clone it on your machine using  the following command in your terminal:
