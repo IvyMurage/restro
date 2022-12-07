@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import FoodContainer from "../FoodContainer/FoodContainer";
 import { RestaurantContext } from "../RestaurantContext";
 import ReviewContainer from "../Review/ReviewContainer";
@@ -23,7 +24,9 @@ export default function RestaurantPage() {
           <div className="intro">
             <h2> {restaurant.name} </h2>
             <p> {restaurant.description} </p>
-            <button className="menu-btn">View Menu</button>
+            <a href="#food-container">
+              <button className="menu-btn">View Menu</button>
+            </a>
           </div>
           <div className="restaurant-page-img">
             <img src={restaurant.image_url} alt={restaurant.name} />

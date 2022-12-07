@@ -1,4 +1,4 @@
-.food-container {
+#food-container {
   display: flex;
   flex-wrap: wrap;
   display: grid;
@@ -42,14 +42,8 @@
 
   width: 100%;
 }
-/* .food-card > p {
-  padding: 10px 0px;
-  font-weight: 900;
-} */
+
 .food-description {
   font-weight: 500px;
   font-size: 16px;
-
 }
-
-

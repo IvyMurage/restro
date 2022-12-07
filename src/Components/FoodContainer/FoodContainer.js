@@ -28,7 +28,7 @@ function FoodContainer({ foods }) {
         Current Menu
       </h3>
 
-      <div className="food-container">{foodList}</div>
+      <div id="food-container">{foodList}</div>
     </>
   );
 }
