@@ -80,7 +80,7 @@ To solve this problem,  I have decided to create a restaurant finder app that he
 
 
 ### Link To Backend Repo
-[Backend Repo](https://github.com/Murage-Ivy/restro/issues/new)
+[Backend Repo](https://github.com/Murage-Ivy/restro-backend)
 
 ## Bugs & Fixes / Feature request
 In case you find a bug, kindly open an issue [here](https://github.com/Murage-Ivy/restro/issues/new). Include your query and your expected results.
