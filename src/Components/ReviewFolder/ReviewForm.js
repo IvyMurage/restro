@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { RestaurantContext } from "../RestaurantContext";
 import "./Review.css";
 function ReviewForm() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const {
     setTrigger,
     handleReviewChange,
     newReview,
     handleSubmitReview,
-    reviewError,
-    triggerLogin,
+    // reviewError,
+    // triggerLogin,
   } = useContext(RestaurantContext);
 
   // useEffect(() => {
