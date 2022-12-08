@@ -17,13 +17,20 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch("https://restro-backend-production.up.railway.app/me").then((r) => {
-      if (r.ok) {
-        r.json().then((loggedUser) => setUser(loggedUser));
+    const payload = async () => {
+      const response = await fetch(
+        "https://restro-backend-production.up.railway.app/me"
+      );
+
+      const loggedUser = await response.json();
+
+      if (response.ok) {
+        setUser(loggedUser);
       }
-    });
+    };
+    payload();
   }, [setUser]);
-  // console.log(userId);
+  console.log(user);
   return (
     <>
       <div className="App">
