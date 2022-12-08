@@ -19,7 +19,7 @@ function RestaurantProvider({ children }) {
     const payload = async () => {
       setLoading(true);
       const response = await fetch(
-        "https://restro-backend-production.up.railway.app/restaurants"
+        "/restaurants"
       );
 
       const restaurants = await response.json();
@@ -43,7 +43,7 @@ function RestaurantProvider({ children }) {
     const payload = async () => {
       setLoading(true);
       const response = await fetch(
-        `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}`
+        `/restaurants/${restaurantId}`
       );
       const restaurant = await response.json();
       if (response.ok) {
@@ -68,7 +68,7 @@ function RestaurantProvider({ children }) {
   useEffect(() => {
     const payload = async () => {
       const response = await fetch(
-        `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews`
+        `/restaurants/${restaurantId}/reviews`
       );
 
       const reviews = await response.json();
@@ -99,7 +99,7 @@ function RestaurantProvider({ children }) {
   async function handleSubmitReview(event) {
     event.preventDefault();
     const response = await fetch(
-      `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews`,
+      `/restaurants/${restaurantId}/reviews`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -127,7 +127,7 @@ function RestaurantProvider({ children }) {
   async function handleDeleteReview(reviewId) {
     console.log(reviewId);
     const response = await fetch(
-      `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews/${reviewId}`,
+      `/restaurants/${restaurantId}/reviews/${reviewId}`,
       { method: "DELETE" }
     );
 
@@ -166,7 +166,7 @@ function RestaurantProvider({ children }) {
     event.preventDefault();
     setSignupLoading(true);
     const response = await fetch(
-      "https://restro-backend-production.up.railway.app/signup",
+      "/signup",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -218,7 +218,7 @@ function RestaurantProvider({ children }) {
     event.preventDefault();
     setIsLoading(true);
     const response = await fetch(
-      "https://restro-backend-production.up.railway.app/login",
+      "/login",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -231,7 +231,6 @@ function RestaurantProvider({ children }) {
     if (response.ok) {
       setIsLoading(false);
       setUser(userData);
-      // setUserId(userData.session_id.session_id)
       setOnLogin(true);
       setLoginStatus(true);
       setLoginError([]);
@@ -250,7 +249,7 @@ function RestaurantProvider({ children }) {
 
   // Logout functionality
   function handleLogoutClick() {
-    fetch("https://restro-backend-production.up.railway.app/logout", {
+    fetch("/logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
