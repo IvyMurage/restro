@@ -14,14 +14,14 @@ function ReviewForm() {
     triggerLogin,
   } = useContext(RestaurantContext);
 
-  useEffect(() => {
-    if (reviewError.length > 0) {
-      reviewError.find((review) => review.includes("Review not found"));
-      if (triggerLogin) {
-        navigate("/login");
-      }
-    }
-  });
+  // useEffect(() => {
+  //   if (reviewError.length > 0) {
+  //     reviewError.find((review) => review.includes("Review not found"));
+  //     if (triggerLogin) {
+  //       navigate("/login");
+  //     }
+  //   }
+  // });
 
   return (
     <div className="popup">
