@@ -17,14 +17,13 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch("/me").then((r) => {
+    fetch("https://restro-backend-production.up.railway.app/me").then((r) => {
       if (r.ok) {
         r.json().then((loggedUser) => setUser(loggedUser));
       }
     });
   }, [setUser]);
-
-  // if (!user) return <LoginForm />;
+  // console.log(userId);
   return (
     <>
       <div className="App">
