@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch("http://localhost:3000/me").then((r) => {
+    fetch("https://restro-backend-production.up.railway.app/me").then((r) => {
       if (r.ok) {
         r.json().then((loggedUser) => setUser(loggedUser));
       }
