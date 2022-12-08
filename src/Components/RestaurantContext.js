@@ -82,48 +82,6 @@ function RestaurantProvider({ children }) {
     payload();
   }, [restaurantId]);
 
-  // Create functionality for adding a new review
-  const [newReview, setNewReview] = useState({
-    title: "",
-    comment: "",
-  });
-
-  const [reviewError, setReviewError] = useState([]);
-
-  function handleReviewChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
-    setNewReview({ ...newReview, [name]: value });
-  }
-
-  async function handleSubmitReview(event) {
-    event.preventDefault();
-    const response = await fetch(
-      `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newReview),
-      }
-    );
-    console.log(response);
-    const review = await response.json();
-    if (response.ok) {
-      setReviews([...reviews, review]);
-      setNewReview({
-        title: "",
-        comment: "",
-        user_id: user.id,
-      });
-      navigate("/restaurants/:id");
-      setTrigger(false);
-    } else {
-      setReviewError(review.errors);
-    }
-  }
-
-  // end of functionality
-
   async function handleDeleteReview(reviewId) {
     console.log(reviewId);
     const response = await fetch(
@@ -213,7 +171,7 @@ function RestaurantProvider({ children }) {
       [name]: value,
     });
   }
-  console.log(user);
+
   async function handleSubmitLoginDetails(event) {
     event.preventDefault();
     setIsLoading(true);
@@ -274,6 +232,49 @@ function RestaurantProvider({ children }) {
   const restaurants = restaurantItems.filter((restaurant) =>
     restaurant.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  // Create functionality for adding a new review
+  const [newReview, setNewReview] = useState({
+    title: "",
+    comment: "",
+  });
+
+  const [reviewError, setReviewError] = useState([]);
+
+  function handleReviewChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    setNewReview({ ...newReview, [name]: value });
+  }
+
+  async function handleSubmitReview(event) {
+    event.preventDefault();
+    const response = await fetch(
+      `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newReview),
+      }
+    );
+    console.log(response);
+    const review = await response.json();
+    if (response.ok) {
+      setReviews([...reviews, review]);
+      setNewReview({
+        title: "",
+        comment: "",
+        user_id: user.id,
+      });
+      navigate("/restaurants/:id");
+      setTrigger(false);
+    } else {
+      setReviewError(review.errors);
+    }
+    console.log(user)
+  }
+
+  // end of functionality
 
   const values = {
     setRestaurant,
