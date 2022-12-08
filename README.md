@@ -78,7 +78,10 @@ To solve this problem,  I have decided to create a restaurant finder app that he
   Alternatively see the GitHub documentation on creating a pull request 
 [creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
- 
+
+### Link To Backend Repo
+[Backend Repo](https://github.com/Murage-Ivy/restro/issues/new)
+
 ## Bugs & Fixes / Feature request
 In case you find a bug, kindly open an issue [here](https://github.com/Murage-Ivy/restro/issues/new). Include your query and your expected results.
 
