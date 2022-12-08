@@ -12,7 +12,7 @@
 8. [Bugs & Feature Request](#bugs--fixes--feature-request)
 
 
-# Shamba Shape Up
+# Restro
 #### Brief description of application
 You’re probably already aware that it can be hard to find the right restaurant and some times when you do and visit it, you find that it is not what you expected.You've been searching for a new restaurant to try, but it's hard to tell which ones are good. What if you could just go online and find them instantly? 
 
@@ -41,10 +41,10 @@ To solve this problem,  I have decided to create a restaurant finder app that he
 ## Installation
 * Fork the repo and clone it on your machine using  the following command in your terminal:
   <br/> 
-  `git clone [<path to  repo>](https://github.com/Murage-Ivy/Shamba-ShapeUp)`
+  `git clone [<path to  repo>](https://github.com/Murage-Ivy/restro)`
 * Navgiate to the cloned repo
   <br/>
-  `cd /Shamba-ShapeUp` 
+  `cd /restro` 
 *  Open the cloned repo on your visual studio by using this command:
    <br/>
   ` code . `
@@ -80,10 +80,10 @@ To solve this problem,  I have decided to create a restaurant finder app that he
 
  
 ## Bugs & Fixes / Feature request
-In case you find a bug, kindly open an issue [here](https://github.com/Murage-Ivy/Shamba-ShapeUp/issues/new). Include your query and your expected results.
+In case you find a bug, kindly open an issue [here](https://github.com/Murage-Ivy/restro/issues/new). Include your query and your expected results.
 
 ## Date of current version 
-7/10/2022
+7/12/2022
 
 
 ## Author
