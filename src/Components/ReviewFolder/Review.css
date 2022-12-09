@@ -117,9 +117,11 @@
   width: fit-content;
 }
 #review-change > button {
-  padding: 10px 30px;
+  padding: 10px 20px;
   color: var(--secondary);
   font-size: 18px;
   font-weight: bold;
   background-color: var(--secondary-font-color);
+  border: 0;
+  border-radius: 12px;
 }

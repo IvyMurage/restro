@@ -20,7 +20,12 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
   function handleSubmit(event) {
     event.preventDefault();
     fetch(
-      `https://restro-server-production.up.railway.app/restaurants/${restaurantId}/reviews/${reviewId}`
+      `https://restro-server-production.up.railway.app/restaurants/${restaurantId}/reviews/${reviewId}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(update),
+      }
     )
       .then((response) => response.json())
       .then((data) => setUpdate(data));
@@ -42,8 +47,9 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
         ) : null}
       </div>
       <h3> {reviewTitle} </h3> <p> {reviewComment} </p>
+      <h3>Edit Comment</h3>
       <form id="review-change" onSubmit={handleSubmit}>
-        <label htmlFor="title"> Comment </label> <br />
+        <label htmlFor="title"> Edit Comment </label> <br />
         <input
           type="text"
           name="comment"
