@@ -286,6 +286,7 @@ function RestaurantProvider({ children }) {
     restaurantError,
     handleRestaurant,
     setRestaurants,
+    restaurantId,
     // userId,
     // State and functions for login
     handleLogoutClick,
