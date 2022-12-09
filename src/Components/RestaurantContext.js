@@ -317,6 +317,7 @@ function RestaurantProvider({ children }) {
     setTrigger,
     handleAddReview,
     setReviews,
+    setNewReview,
     newReview,
     reviewError,
     handleReviewChange,
