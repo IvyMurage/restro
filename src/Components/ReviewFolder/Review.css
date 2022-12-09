@@ -112,3 +112,14 @@
   color: var(--secondary-font-color);
   font-size: 20px;
 }
+
+#review-change {
+  width: fit-content;
+}
+#review-change > button {
+  padding: 10px 30px;
+  color: var(--secondary);
+  font-size: 18px;
+  font-weight: bold;
+  background-color: var(--secondary-font-color);
+}

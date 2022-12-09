@@ -42,7 +42,7 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
         ) : null}
       </div>
       <h3> {reviewTitle} </h3> <p> {reviewComment} </p>
-      <form id="review-form" onSubmit={handleSubmit}>
+      <form id="review-change" onSubmit={handleSubmit}>
         <label htmlFor="title"> Comment </label> <br />
         <input
           type="text"
@@ -50,9 +50,7 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
           value={update.comment}
           onChange={handleUpdate}
         />
-        <button type="type" className="review-btn-1">
-          Submit change
-        </button>
+        <button type="type">Submit change</button>
       </form>
     </div>
   );
