@@ -29,7 +29,6 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setReviews((prevState) =>
           prevState.map((review) => {
             if (review.id === data.id) {
@@ -39,6 +38,7 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
             }
           })
         );
+        setUpdate({ comment: "" });
       });
   }
 
@@ -61,14 +61,13 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
       {user ? (
         <form id="review-change" onSubmit={handleSubmit}>
           <h3 style={{ color: "#e1f52c" }}>Edit Comment</h3>
-          {/* <label htmlFor="title"> Edit Comment </label> <br /> */}
           <input
             type="text"
             name="comment"
             value={update.comment}
             onChange={handleUpdate}
           />
-          <button type="type">Submit change</button>
+          <button type="type">Edit Review</button>
         </form>
       ) : null}
     </div>
