@@ -5,7 +5,7 @@ import { RestaurantContext } from "../RestaurantContext";
 import { useState } from "react";
 
 function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
-  const { handleDeleteReview, user, restaurantId, setReviews } =
+  const { handleDeleteReview, user, restaurantId, setReviews, newReview } =
     useContext(RestaurantContext);
   const [update, setUpdate] = useState({
     comment: "",
@@ -29,7 +29,9 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
     )
       .then((response) => response.json())
       .then((data) =>
-        setReviews((prevState) => (prevState = [...prevState, { ...data }]))
+        setReviews(
+          (prevState) => (prevState = [...prevState, { ...newReview, data }])
+        )
       );
   }
 
