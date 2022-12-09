@@ -4,7 +4,7 @@ import ReviewCard from "./ReviewCard";
 import "./Review.css";
 
 function ReviewContainer() {
-  const { reviews, handleAddReview } = useContext(RestaurantContext);
+  const { reviews, handleAddReview, user } = useContext(RestaurantContext);
 
   const reviewList = reviews.map((review) => (
     <ReviewCard
@@ -17,10 +17,12 @@ function ReviewContainer() {
   ));
   return (
     <div className="review-container">
-      <h3>Reviews</h3>
-      <button className="review-btn" onClick={handleAddReview}>
-        Add Review
-      </button>
+      <h3> Reviews </h3>
+      {user ? (
+        <button className="review-btn" onClick={handleAddReview}>
+          Add Review
+        </button>
+      ) : null}
       {reviewList}
     </div>
   );

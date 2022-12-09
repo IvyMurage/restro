@@ -5,7 +5,7 @@ import { RestaurantContext } from "../RestaurantContext";
 import { useState } from "react";
 
 function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
-  const { handleDeleteReview, user, restaurantId, setReviews } =
+  const { handleDeleteReview, user, restaurantId, setNewReview } =
     useContext(RestaurantContext);
   const [update, setUpdate] = useState({
     comment: "",
@@ -29,7 +29,7 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
     )
       .then((response) => response.json())
       .then((data) =>
-        setReviews((prevState) => (prevState = [...prevState, data]))
+        setNewReview((prevState) => (prevState = { ...prevState, data }))
       );
   }
 
@@ -49,7 +49,7 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
         ) : null}
       </div>
       <h3> {reviewTitle} </h3> <p> {reviewComment} </p>
-      <h3 style={{color:"#e1f52c" }}>Edit Comment</h3>
+      <h3 style={{ color: "#e1f52c" }}>Edit Comment</h3>
       {user ? (
         <form id="review-change" onSubmit={handleSubmit}>
           {/* <label htmlFor="title"> Edit Comment </label> <br /> */}
