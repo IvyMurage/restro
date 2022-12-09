@@ -40,17 +40,20 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
             onClick={() => handleDeleteReview(reviewId)}
           />
         ) : null}
-        <form id="review-form" onSubmit={handleSubmit}>
-          <label htmlFor="title"> Title </label> <br />
-          <input
-            type="text"
-            name="comment"
-            value={update.comment}
-            onChange={handleUpdate}
-          />
-        </form>
       </div>
       <h3> {reviewTitle} </h3> <p> {reviewComment} </p>
+      <form id="review-form" onSubmit={handleSubmit}>
+        <label htmlFor="title"> Comment </label> <br />
+        <input
+          type="text"
+          name="comment"
+          value={update.comment}
+          onChange={handleUpdate}
+        />
+        <button type="type" className="review-btn-1">
+          Submit change
+        </button>
+      </form>
     </div>
   );
 }
