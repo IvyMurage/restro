@@ -5,7 +5,7 @@ import { RestaurantContext } from "../RestaurantContext";
 import { useState } from "react";
 
 function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
-  const { handleDeleteReview, user, restaurantId } =
+  const { handleDeleteReview, user, restaurantId, setReviews } =
     useContext(RestaurantContext);
   const [update, setUpdate] = useState({
     comment: "",
@@ -28,7 +28,9 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
       }
     )
       .then((response) => response.json())
-      .then((data) => setUpdate(data));
+      .then((data) =>
+        setReviews((prevState) => (prevState = [...prevState, data]))
+      );
   }
 
   return (
@@ -47,17 +49,19 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
         ) : null}
       </div>
       <h3> {reviewTitle} </h3> <p> {reviewComment} </p>
-      <h3>Edit Comment</h3>
-      <form id="review-change" onSubmit={handleSubmit}>
-        <label htmlFor="title"> Edit Comment </label> <br />
-        <input
-          type="text"
-          name="comment"
-          value={update.comment}
-          onChange={handleUpdate}
-        />
-        <button type="type">Submit change</button>
-      </form>
+      <h3 style={{color:"#e1f52c" }}>Edit Comment</h3>
+      {user ? (
+        <form id="review-change" onSubmit={handleSubmit}>
+          {/* <label htmlFor="title"> Edit Comment </label> <br /> */}
+          <input
+            type="text"
+            name="comment"
+            value={update.comment}
+            onChange={handleUpdate}
+          />
+          <button type="type">Submit change</button>
+        </form>
+      ) : null}
     </div>
   );
 }

@@ -271,7 +271,7 @@ function RestaurantProvider({ children }) {
     } else {
       setReviewError(review.errors);
     }
-    console.log(user)
+    console.log(user);
   }
 
   // end of functionality
@@ -316,7 +316,7 @@ function RestaurantProvider({ children }) {
     trigger,
     setTrigger,
     handleAddReview,
-
+    setReviews,
     newReview,
     reviewError,
     handleReviewChange,
