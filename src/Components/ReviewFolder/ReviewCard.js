@@ -20,7 +20,7 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
   function handleSubmit(event) {
     event.preventDefault();
     fetch(
-      `https://restro-backend-production.up.railway.app/restaurants/${restaurantId}/reviews/${reviewId}`
+      `https://restro-server-production.up.railway.app/restaurants/${restaurantId}/reviews/${reviewId}`
     )
       .then((response) => response.json())
       .then((data) => setUpdate(data));
