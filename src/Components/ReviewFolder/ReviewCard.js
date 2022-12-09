@@ -28,11 +28,12 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
       }
     )
       .then((response) => response.json())
-      .then((data) =>
+      .then((data) => {
+        console.log(data);
         setReviews(
           (prevState) => (prevState = [...prevState, { ...newReview, data }])
-        )
-      );
+        );
+      });
   }
 
   return (
