@@ -9,8 +9,8 @@ function ReviewCard({ reviewTitle, reviewComment, reviewUser, reviewId }) {
     <div className="review-card">
       <div className="review-info">
         <div className="reviewer-info">
-          <h4>{reviewUser.username}</h4>
-          <img src={reviewUser.image_url} alt={reviewUser.username} />
+          {/* <h4>{reviewUser.username}</h4>
+          <img src={reviewUser.image_url} alt={reviewUser.username} /> */}
         </div>
         {user ? (
           <Icon

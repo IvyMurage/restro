@@ -30,7 +30,6 @@ function App() {
     };
     payload();
   }, [setUser]);
-  console.log(user);
   return (
     <>
       <div className="App">
