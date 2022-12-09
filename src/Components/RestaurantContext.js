@@ -178,6 +178,7 @@ function RestaurantProvider({ children }) {
     const response = await fetch(
       "https://restro-server-production.up.railway.app/login",
       {
+        withCredentials: true,
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginData),
