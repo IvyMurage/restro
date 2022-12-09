@@ -19,7 +19,7 @@ function App() {
     // auto-login
     const payload = async () => {
       const response = await fetch(
-        "https://restro-backend-production.up.railway.app/me"
+        "https://restro-server-production.up.railway.app/me"
       );
 
       const loggedUser = await response.json();
