@@ -23,8 +23,7 @@
 }
 
 .restro-info > h3:hover {
- text-decoration: underline;
-  
+  text-decoration: underline;
 }
 .restaurant-img {
   width: 100%;
@@ -50,4 +49,10 @@
 
 .star {
   padding-right: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+  .restaurant-container {
+    grid-template-columns: (2, 1fr);
+  }
 }
