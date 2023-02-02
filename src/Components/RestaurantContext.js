@@ -19,7 +19,8 @@ function RestaurantProvider({ children }) {
     const payload = async () => {
       setLoading(true);
       const response = await fetch(
-        "https://restro-server-production.up.railway.app/restaurants"
+        "https://restro-api.onrender.com/restaurants",
+        { headers: {} }
       );
 
       const restaurants = await response.json();
@@ -43,7 +44,7 @@ function RestaurantProvider({ children }) {
     const payload = async () => {
       setLoading(true);
       const response = await fetch(
-        `https://restro-server-production.up.railway.app/restaurants/${restaurantId}`
+        `https://restro-api.onrender.com/restaurants/${restaurantId}`
       );
       const restaurant = await response.json();
       if (response.ok) {
@@ -68,7 +69,7 @@ function RestaurantProvider({ children }) {
   useEffect(() => {
     const payload = async () => {
       const response = await fetch(
-        `https://restro-server-production.up.railway.app/restaurants/${restaurantId}/reviews`
+        `https://restro-api.onrender.com/restaurants/${restaurantId}/reviews`
       );
 
       const reviews = await response.json();
@@ -85,7 +86,7 @@ function RestaurantProvider({ children }) {
   async function handleDeleteReview(reviewId) {
     console.log(reviewId);
     const response = await fetch(
-      `https://restro-server-production.up.railway.app/restaurants/${restaurantId}/reviews/${reviewId}`,
+      `https://restro-api.onrender.com/restaurants/${restaurantId}/reviews/${reviewId}`,
       { method: "DELETE" }
     );
 
@@ -123,14 +124,11 @@ function RestaurantProvider({ children }) {
   async function handleSubmitSignupDetails(event) {
     event.preventDefault();
     setSignupLoading(true);
-    const response = await fetch(
-      "https://restro-server-production.up.railway.app/signup",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(signupData),
-      }
-    );
+    const response = await fetch("https://restro-api.onrender.com/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(signupData),
+    });
 
     const userData = await response.json();
     if (response.ok) {
@@ -175,15 +173,12 @@ function RestaurantProvider({ children }) {
   async function handleSubmitLoginDetails(event) {
     event.preventDefault();
     setIsLoading(true);
-    const response = await fetch(
-      "https://restro-server-production.up.railway.app/login",
-      {
-        withCredentials: true,
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(loginData),
-      }
-    );
+    const response = await fetch("https://restro-api.onrender.com/login", {
+      withCredentials: true,
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(loginData),
+    });
 
     const userData = await response.json();
 
@@ -208,7 +203,7 @@ function RestaurantProvider({ children }) {
 
   // Logout functionality
   function handleLogoutClick() {
-    fetch("https://restro-server-production.up.railway.app/logout", {
+    fetch("https://restro-api.onrender.com/logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
@@ -251,7 +246,7 @@ function RestaurantProvider({ children }) {
   async function handleSubmitReview(event) {
     event.preventDefault();
     const response = await fetch(
-      `https://restro-server-production.up.railway.app/restaurants/${restaurantId}/reviews`,
+      `https://restro-api.onrender.com/restaurants/${restaurantId}/reviews`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

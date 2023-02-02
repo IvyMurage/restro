@@ -53,7 +53,7 @@ export default function LoginForm() {
             onChange={handleLoginChange}
           />
           <br />
-          {loginError.map((error, index) => (
+          {loginError?.map((error, index) => (
             <p className="loginError" key={index}>
               {error}!!
             </p>

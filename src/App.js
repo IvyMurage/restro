@@ -16,11 +16,8 @@ function App() {
   const { user, setUser } = useContext(RestaurantContext);
 
   useEffect(() => {
-    // auto-login
     const payload = async () => {
-      const response = await fetch(
-        "https://restro-server-production.up.railway.app/me"
-      );
+      const response = await fetch("https://restro-api.onrender.com/me");
 
       const loggedUser = await response.json();
 
@@ -39,7 +36,7 @@ function App() {
             path="/"
             element={
               <>
-                <HeroSection />
+                <HeroSection user={user} />
                 <h3 id="bookList-heading"> Popular Restaurants </h3>
                 <RestaurantContainer />
               </>
