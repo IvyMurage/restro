@@ -21,7 +21,7 @@ function RestaurantContainer() {
   return (
     <div className="restaurant-container">
       {/* <h2>Popular Restaurants</h2> */}
-      {restraurantsError.length > 0
+      {restraurantsError?.length > 0
         ? restraurantsError.map((error) => (
             <span className="error-message" key={error}>
               {error}

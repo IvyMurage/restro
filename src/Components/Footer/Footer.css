@@ -26,9 +26,17 @@ footer {
   font-size: 30px;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
   footer {
     /* display: none; */
-    max-width: 100vh;
+    max-width: 100%;
+    padding: 0;
+  }
+  .social-icons {
+    width: 15%;
+  }
+
+  #copy-right {
+    font-size: 18px;
   }
 }

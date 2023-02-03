@@ -5,66 +5,69 @@
   --secondary: #12263a;
   --mint-cream: #f5fffa;
 }
-.about-restaurant {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 10px 30px;
-  margin-top: 20px;
-  height: 80vh;
+@media screen {
+  .about-restaurant {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 30px;
+    margin-top: 20px;
+    height: 80vh;
+  }
+  
+  .about-restaurant > div {
+    flex: 50%;
+  }
+  
+  .about-info {
+    padding: 20px 40px;
+  }
+  .about-info > h3 {
+    font-size: 30px;
+    color: var(--mint-cream);
+    word-spacing: 5px;
+  }
+  .about-info > p {
+    word-spacing: 2px;
+    font-size: 20px;
+    line-height: 2;
+    color: var(--mint-cream);
+    font-weight: 300;
+  }
+  .about-img {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .about-img > img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+    height: 400px;
+  }
+  
+  .view-all {
+    padding: 10px 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    outline: 0;
+    border: 0;
+    color: var(--primary);
+    background-color: var(--secondary-font-color);
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .view-all:hover {
+    border: 2px solid var(--secondary-font-color);
+    color: var(--mint-cream);
+    background-color: transparent;
+  }
 }
 
-.about-restaurant > div {
-  flex: 50%;
-}
 
-.about-info {
-  padding: 20px 40px;
-}
-.about-info > h3 {
-  font-size: 30px;
-  color: var(--mint-cream);
-  word-spacing: 5px;
-}
-.about-info > p {
-  word-spacing: 2px;
-  font-size: 20px;
-  line-height: 2;
-  color: var(--mint-cream);
-  font-weight: 300;
-}
-.about-img {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.about-img > img {
-  width: 100%;
-  border-radius: 20px;
-  display: block;
-  margin: 0 auto;
-  height: 400px;
-}
-
-.view-all {
-  padding: 10px 25px;
-  border-radius: 10px;
-  margin-top: 20px;
-  outline: 0;
-  border: 0;
-  color: var(--primary);
-  background-color: var(--secondary-font-color);
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.view-all:hover {
-  border: 2px solid var(--secondary-font-color);
-  color: var(--mint-cream);
-  background-color: transparent;
-}
-
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   .about-restaurant {
     background-image: linear-gradient(
         to bottom,

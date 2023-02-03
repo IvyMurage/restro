@@ -11,8 +11,8 @@ export default function RestaurantPage() {
 
   return (
     <>
-      {restaurantError.length > 0
-        ? restaurantError.map((error, index) => (
+      {restaurantError?.length > 0
+        ? restaurantError?.map((error, index) => (
             <span key={index} className="error">
               {error}
             </span>
