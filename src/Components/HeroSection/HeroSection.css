@@ -64,7 +64,7 @@
   background-color: transparent;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   .about-restaurant {
     background-image: linear-gradient(
         to bottom,
