@@ -20,7 +20,7 @@ function RestaurantProvider({ children }) {
       setLoading(true);
       const response = await fetch(
         "https://restro-api.onrender.com/restaurants",
-        { headers: {} }
+        { headers: { 'Access-Control-Allow-Origin': '*' } }
       );
 
       const restaurants = await response.json();
